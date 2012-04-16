@@ -5,4 +5,4 @@
 *.war
 *.ear
 
-class/.DS_Store
+*.DS_Store
