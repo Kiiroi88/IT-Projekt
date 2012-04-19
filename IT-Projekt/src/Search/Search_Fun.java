@@ -1,5 +1,4 @@
 package Search;
-
 import java.sql.*;
 import java.util.*;
 
@@ -21,7 +20,7 @@ public class Search_Fun {
 	// DB access variables
 	private String URL = "jdbc:mysql://184.172.173.42:3306/chichiu_ITProjekt";
 	private String driver = "com.mysql.jdbc.Driver";
-	private String userID = "chichiu_anroth";
+	private String userID = "chichiu_miob";
 	private String password = "it12345";
 
 	// method for establishing a DB connection
@@ -53,7 +52,7 @@ public class Search_Fun {
 		Statement statement;
 		ResultSet resultSet;
 
-		query = "SELECT Varunamn FROM Vara"; // SQL command to retrieve all the groceries, set into query variable 
+		query = "SELECT Name FROM Product"; // SQL command to retrieve all the groceries, set into query variable 
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -63,7 +62,7 @@ public class Search_Fun {
 
 		while(resultSet.next())
 		{
-			groceryList.add(resultSet.getString("Varunamn"));
+			groceryList.add(resultSet.getString("Name"));
 
 		}
 
@@ -83,14 +82,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT Artikelnummer FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT ReferenceNumber FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				articleList.add(resultSet.getInt("Artikelnummer"));
+				articleList.add(resultSet.getInt("ReferenceNumber"));
 
 			}
 
@@ -111,7 +110,7 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT ID FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT ID FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
@@ -139,14 +138,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT Enhet FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Unit FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				unitList.add(resultSet.getInt("Enhet"));
+				unitList.add(resultSet.getInt("Unit"));
 
 			}
 
@@ -168,14 +167,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT Kvantitet FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Quantity FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				quantityList.add(resultSet.getInt("Kvantitet"));
+				quantityList.add(resultSet.getInt("Quantity"));
 
 			}
 
@@ -196,14 +195,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT AntalFRP FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Amount FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				amountFRPList.add(resultSet.getInt("AntalFRP"));
+				amountFRPList.add(resultSet.getInt("Amount"));
 
 			}
 
@@ -224,14 +223,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT Pris FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Price FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				priceList.add(resultSet.getInt("Pris"));
+				priceList.add(resultSet.getInt("Price"));
 
 			}
 
@@ -251,14 +250,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT Varutyp FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Type FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				typeList.add(resultSet.getString("Varutyp"));
+				typeList.add(resultSet.getString("Type"));
 
 			}
 
@@ -279,14 +278,14 @@ public class Search_Fun {
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			query = "SELECT PlatsID FROM Vara WHERE Varunamn='" + keyword +"'";
+			query = "SELECT Space FROM Product WHERE Name='" + keyword +"'";
 
 
 			resultSet = statement.executeQuery(query); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				storedAtList.add(resultSet.getInt("PlatsID"));
+				storedAtList.add(resultSet.getInt("Space"));
 
 			}
 
