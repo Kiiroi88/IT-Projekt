@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI.gui;
 
 /**
  *
@@ -33,8 +33,8 @@ public class MainMenu extends javax.swing.JFrame {
         jButton_Counter = new javax.swing.JButton();
         jButton_Dish = new javax.swing.JButton();
         jButton_Login = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_Bild = new javax.swing.JLabel();
+        jLabel_Hazz = new javax.swing.JLabel();
         jButton_Search = new javax.swing.JButton();
         jTextField_Search = new javax.swing.JTextField();
         jPanel_Main = new javax.swing.JPanel();
@@ -83,7 +83,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.JLabel() {
+        jLabel_Bild.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -95,7 +95,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         }.getIcon());
 
-        jLabel3.setIcon(new javax.swing.JLabel() {
+        jLabel_Hazz.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -106,7 +106,7 @@ public class MainMenu extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
-        jLabel3.setText("jLabel3");
+        jLabel_Hazz.setText("jLabel3");
 
         jButton_Search.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Search.setText("Search");
@@ -135,7 +135,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel_Bild, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTextField_Search, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
@@ -157,7 +157,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(371, 371, 371)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_Hazz, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
@@ -172,9 +172,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel_Bild)
                         .addGap(28, 28, 28))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_Hazz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -275,8 +275,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Order;
     private javax.swing.JButton jButton_Search;
     private javax.swing.JButton jButton_Stock;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel_Bild;
+    private javax.swing.JLabel jLabel_Hazz;
     private javax.swing.JPanel jPanel_Main;
     private javax.swing.JTextField jTextField_Search;
     // End of variables declaration//GEN-END:variables

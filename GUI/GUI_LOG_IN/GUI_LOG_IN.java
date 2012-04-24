@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_LOG_IN;
+package GUI.GUI_LOG_IN;
 
 /**
  *
@@ -26,7 +26,7 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_Login_Rubrik = new javax.swing.JLabel();
         jTextField_Username = new javax.swing.JTextField();
         jPasswordField_Password = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
@@ -37,14 +37,14 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Logga in");
+        jLabel_Login_Rubrik.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel_Login_Rubrik.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel_Login_Rubrik.setText("Log in");
 
         jPasswordField_Password.setMinimumSize(new java.awt.Dimension(100, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("Logga in");
+        jButton1.setText("Log in");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -82,7 +82,7 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
+                                .addComponent(jLabel_Login_Rubrik)
                                 .addComponent(jCheckBox_Manager)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +98,7 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel_Login_Rubrik)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox_Manager)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -172,7 +172,7 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox_Boss;
     private javax.swing.JCheckBox jCheckBox_Manager;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_Login_Rubrik;
     private javax.swing.JLabel jLabel_Password;
     private javax.swing.JLabel jLabel_Username;
     private javax.swing.JPasswordField jPasswordField_Password;

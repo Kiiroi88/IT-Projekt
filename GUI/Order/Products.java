@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Order;
+package GUI.Order;
 
 /**
  *
@@ -27,11 +27,11 @@ public class Products extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable_Products = new javax.swing.JTable();
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(255, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Products.setAutoCreateRowSorter(true);
+        jTable_Products.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Products.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -66,10 +66,10 @@ public class Products extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jTable1.setEditingColumn(0);
-        jTable1.setEditingRow(0);
-        jTable1.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable1);
+        jTable_Products.setEditingColumn(0);
+        jTable_Products.setEditingRow(0);
+        jTable_Products.setRowHeight(20);
+        jScrollPane1.setViewportView(jTable_Products);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,6 +86,6 @@ public class Products extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_Products;
     // End of variables declaration//GEN-END:variables
 }
