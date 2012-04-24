@@ -4,6 +4,7 @@
  */
 package gui;
 
+import GUI_COUNTER.Counter;
 import GUI_LOG_IN.GUI_LOG_IN;
 
 /**
@@ -65,6 +66,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton_Inventory.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Inventory.setText("Inventory");
+        jButton_Inventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButton_Inventory(evt);
+            }
+        });
 
         jButton_Counter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Counter.setText("Counter");
@@ -76,6 +82,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton_Dish.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Dish.setText("Dish");
+        jButton_Dish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButton_Dish(evt);
+            }
+        });
 
         jButton_Login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Login.setText("Log in");
@@ -220,15 +231,30 @@ public class MainMenu extends javax.swing.JFrame {
          });
     }//GEN-LAST:event_jButton_LoginActionPerformed
 
+    private void jButton_Inventory(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+        // Sök knapp 
+     }//GEN-LAST:event_jButton_SearchActionPerformed
+
+    private void jButton_Dish(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+        // Sök knapp 
+     }//GEN-LAST:event_jButton_SearchActionPerformed
+
+    
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
        // Sök knapp 
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
-    	}//GEN-LAST:event_jButton_StockActionPerformed
+    	
+    }//GEN-LAST:event_jButton_StockActionPerformed
 
     private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed
-        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new Counter().setVisible(true);
+            }
+        });
     }//GEN-LAST:event_jButton_CounterActionPerformed
 
     /**
@@ -269,6 +295,7 @@ public class MainMenu extends javax.swing.JFrame {
 
             public void run() {
                 new MainMenu().setVisible(true);
+                
             }
         });
     }
