@@ -4,6 +4,8 @@
  */
 package gui;
 
+import GUI_LOG_IN.GUI_LOG_IN;
+
 /**
  *
  * @author DELL
@@ -210,7 +212,12 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_OrderActionPerformed
 
     private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
-        // TODO add your handling code here:
+    	 java.awt.EventQueue.invokeLater(new Runnable() {
+
+             public void run() {
+                 new GUI_LOG_IN().setVisible(true);
+             }
+         });
     }//GEN-LAST:event_jButton_LoginActionPerformed
 
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
@@ -218,8 +225,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_StockActionPerformed
+    	}//GEN-LAST:event_jButton_StockActionPerformed
 
     private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed
         // TODO add your handling code here:
