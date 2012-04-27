@@ -5,9 +5,12 @@
 package gui;
 
 import java.util.ArrayList;
+import java.sql.*;
 //import java.util.Scanner;
 
 
+import Connect.Connect;
+import GUI_COUNTER.Counter;
 import GUI_LOG_IN.GUI_LOG_IN;
 import Searches.Search_Fun;
 import Searches.Searcher;
@@ -19,6 +22,8 @@ import Stock.Stock;
  */
 public class MainMenu extends javax.swing.JFrame {
 
+	public static Connection con;
+	
 	/**
 	 * Creates new form NewJFrame
 	 */
@@ -250,15 +255,17 @@ public class MainMenu extends javax.swing.JFrame {
 
 			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
 			System.out.println("Groceries matched in the database: " + temp2);
-			try {
-
-				search_fun2.combine(temp2);
-			} catch (Exception e) {
-
+			Object [][] guiTable2 = null;
+			try 
+			{
+				guiTable2 = search_fun2.combine(temp2);
+			} 
+			catch (Exception e) 
+			{ 
 				e.printStackTrace();
 			}
 		}
-	}//GEN-LAST:event_jButton_SearchActionPerformed
+	}
 
 	private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
 		java.awt.EventQueue.invokeLater(new Runnable() {
@@ -271,7 +278,12 @@ public class MainMenu extends javax.swing.JFrame {
 	}//GEN-LAST:event_jButton_StockActionPerformed
 
 	private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed
-		// TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new Counter().setVisible(true);
+            }
+        });
 	}//GEN-LAST:event_jButton_CounterActionPerformed
 
 	/**
@@ -281,6 +293,9 @@ public class MainMenu extends javax.swing.JFrame {
 	public static void main(String args[]) throws Exception { // DM - throws exception       
 
 
+		Connect c = new Connect();
+		c.Connect();
+		
 		/*
 		 * Set the Nimbus look and feel
 		 */

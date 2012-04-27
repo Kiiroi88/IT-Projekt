@@ -1,6 +1,6 @@
 package Searches;
 
-import java.sql.*;
+import java.sql.*; 
 import java.util.*;
 
 public class Search_Fun 
@@ -46,14 +46,15 @@ public class Search_Fun
 			e.printStackTrace();
 		}
 	}
+	
+	String searchQuery;
+	Statement statement;
+	ResultSet resultSet;
 
 	// Method for retreival of information in table stored 
 	// in the database (MySQL)
 	public ArrayList select () throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		searchQuery = "SELECT Name FROM Product"; // SQL command to retrieve all the groceries, set into query variable 
 
@@ -74,9 +75,6 @@ public class Search_Fun
 	}
 	public ArrayList selectArticle (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -100,9 +98,6 @@ public class Search_Fun
 
 	public ArrayList selectID (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -126,9 +121,6 @@ public class Search_Fun
 
 	public ArrayList selectUnit (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -150,10 +142,7 @@ public class Search_Fun
 	}
 
 	public ArrayList selectQuantity (ArrayList <String> input) throws Exception
-	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
+	{ 
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -161,13 +150,13 @@ public class Search_Fun
 		for(int i=0; i < input.size(); i++)
 		{
 			String keyword = input.get(i);
-			searchQuery = "SELECT Quantity FROM Product WHERE Name='" + keyword +"'";
+			searchQuery = "SELECT minimum_quantity FROM Product WHERE Name='" + keyword +"'";
 
 			resultSet = statement.executeQuery(searchQuery); // Execute the SQL statement that is saved in the query variable
 
 			while(resultSet.next())
 			{
-				quantityList.add(resultSet.getInt("Quantity"));
+				quantityList.add(resultSet.getInt("minimum_quantity"));
 
 			}
 		}
@@ -177,9 +166,6 @@ public class Search_Fun
 
 	public ArrayList selectFRP (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -202,9 +188,6 @@ public class Search_Fun
 
 	public ArrayList selectPrice (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -227,9 +210,6 @@ public class Search_Fun
 
 	public ArrayList selectType (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 
@@ -252,9 +232,6 @@ public class Search_Fun
 
 	public ArrayList selectStoredAt (ArrayList <String> input) throws Exception
 	{
-		String searchQuery;
-		Statement statement;
-		ResultSet resultSet;
 
 		statement = con.createStatement(); // Creation of statement associated with the connection object
 

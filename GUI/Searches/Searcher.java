@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Searcher 
 {
-
 	ArrayList <String> resultList = new ArrayList <String>();
 
 	// Searches through the input list from database, compares and returns a list of matched words with the

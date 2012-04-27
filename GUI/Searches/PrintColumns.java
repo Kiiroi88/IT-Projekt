@@ -1,32 +1,38 @@
 package Searches;
 
+import gui.MainMenu;
+
 import java.sql.*;
+
+import Connect.Connect;
 
 public class PrintColumns {
 
 	public String[][] Print() {
 
 		String[][] table = null;
-		String url = "jdbc:mysql://184.172.173.42:3306/chichiu_ITProjekt";
-		Connection con;
+//		String url = "jdbc:mysql://184.172.173.42:3306/chichiu_ITProjekt";
+//		Connection con;
 		String query = "select * from Product";
 		String query2 = "select * from Product";
 		Statement stmt;
 		Statement stmt2;
+		
+
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//
+//		} catch (java.lang.ClassNotFoundException e) {
+//			System.err.print("ClassNotFoundException: ");
+//			System.err.println(e.getMessage());
+//		}
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-		} catch (java.lang.ClassNotFoundException e) {
-			System.err.print("ClassNotFoundException: ");
-			System.err.println(e.getMessage());
-		}
-
-		try {
-			con = DriverManager.getConnection(url, "chichiu_anroth", "it12345");
-
-			stmt = con.createStatement();
-			stmt2 = con.createStatement();
+//			con = DriverManager.getConnection(url, "chichiu_anroth", "it12345");
+		
+			
+			stmt = MainMenu.con.createStatement();
+			stmt2 = MainMenu.con.createStatement();
 
 			ResultSet rs = stmt.executeQuery(query);
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -56,7 +62,7 @@ public class PrintColumns {
 			}
 
 			stmt.close();
-			con.close();
+
 
 		} catch (SQLException ex) {
 			System.err.print("SQLException: ");
