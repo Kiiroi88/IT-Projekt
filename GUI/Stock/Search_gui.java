@@ -13,7 +13,7 @@ import Searches.*;
  *
  * @author DELL
  */
-public class Stock extends javax.swing.JPanel {
+public class Search_gui extends javax.swing.JPanel {
 	
 	Search_Fun fillInit = new Search_Fun();
 	Searcher searcher = new Searcher();
@@ -23,8 +23,8 @@ public class Stock extends javax.swing.JPanel {
      * Creates new form Stock
      * @throws Exception 
      */
-    public Stock() throws Exception {
-        initComponents();
+    public Search_gui(String temp) throws Exception {
+        initComponents(temp);
     }
 
     /**
@@ -35,19 +35,17 @@ public class Stock extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws Exception {
-
+    private void initComponents(String tmp) throws Exception {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Stock = new javax.swing.JTable();
 
         jTable_Stock.setAutoCreateRowSorter(true);
         jTable_Stock.setBackground(new java.awt.Color(255, 204, 204));
-//        fillInit.connect();
-//        fillInit.select(); 
-//		ArrayList <String> temp = searcher.searchThrough(fillInit.groceryList, "");
-//		System.out.println("Groceries matched in the database: " + temp);
-		PrintColumns P = new PrintColumns();
-		table = P.Print();
+        fillInit.connect();
+        fillInit.select(); 
+		ArrayList <String> temp = searcher.searchThrough(fillInit.groceryList, tmp);
+		System.out.println("Groceries matched in the database: " + temp);
+		table = fillInit.combine(temp);
 		
 		
         jTable_Stock.setModel(new javax.swing.table.DefaultTableModel(
