@@ -8,6 +8,7 @@ import java.util.ArrayList;
 //import java.util.Scanner;
 
 
+import GUI_LOG_IN.GUI_LOG_IN;
 import Searches.Search_Fun;
 import Searches.Searcher;
 import Stock.Stock;
@@ -219,7 +220,12 @@ public class MainMenu extends javax.swing.JFrame {
 	}//GEN-LAST:event_jButton_OrderActionPerformed
 
 	private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
-		// TODO add your handling code here:
+		java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new GUI_LOG_IN().setVisible(true);
+            }
+        });
 	}//GEN-LAST:event_jButton_LoginActionPerformed
 
 	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
