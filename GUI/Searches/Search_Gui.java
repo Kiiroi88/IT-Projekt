@@ -58,12 +58,12 @@ public class Search_Gui extends javax.swing.JPanel {
         jTable_Stock.setEditingRow(0);
         jTable_Stock.setRowHeight(20);
         jScrollPane1.setViewportView(jTable_Stock);
-        jTable_Stock.getColumnModel().getColumn(0).setResizable(false);
-        jTable_Stock.getColumnModel().getColumn(1).setResizable(false);
-        jTable_Stock.getColumnModel().getColumn(2).setResizable(false);
-        jTable_Stock.getColumnModel().getColumn(4).setResizable(false);
-        jTable_Stock.getColumnModel().getColumn(5).setResizable(false);
-        jTable_Stock.getColumnModel().getColumn(6).setResizable(false);
+        jTable_Stock.getColumnModel().getColumn(0).setResizable(true);
+        jTable_Stock.getColumnModel().getColumn(1).setResizable(true);
+        jTable_Stock.getColumnModel().getColumn(2).setResizable(true);
+        jTable_Stock.getColumnModel().getColumn(4).setResizable(true);
+        jTable_Stock.getColumnModel().getColumn(5).setResizable(true);
+        jTable_Stock.getColumnModel().getColumn(6).setResizable(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
