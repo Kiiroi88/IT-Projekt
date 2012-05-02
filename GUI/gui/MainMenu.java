@@ -244,7 +244,6 @@ public class MainMenu extends javax.swing.JFrame {
 
 			Search_Fun search_fun2 = new Search_Fun();
 			Searcher searcher2 = new Searcher();
-			search_fun2.connect();
 			try {
 
 				search_fun2.select();
@@ -268,13 +267,16 @@ public class MainMenu extends javax.swing.JFrame {
 	}
 
 	private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
-		java.awt.EventQueue.invokeLater(new Runnable() {
 
-			public void run() {
-				new testMain().setVisible(true);
-
-			}
-		});
+		
+		
+//		java.awt.EventQueue.invokeLater(new Runnable() {
+//
+//			public void run() {
+//				new testMain().setVisible(true);
+//
+//			}
+//		});
 	}//GEN-LAST:event_jButton_StockActionPerformed
 
 	private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed

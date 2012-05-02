@@ -8,9 +8,9 @@ import Connect.Connect;
 
 public class PrintColumns {
 
-	public String[][] Print() {
+	public Object[][] Print() {
 
-		String[][] table = null;
+		Object[][] table = null;
 		String query = "select * from product";
 		String query2 = "select * from product";
 		Statement stmt;
@@ -36,12 +36,12 @@ public class PrintColumns {
 
 			int y = 0;
 			int numberOfColumns = rsmd.getColumnCount();
-			table = new String[rc][numberOfColumns];
+			table = new Object[rc][numberOfColumns];
 
 			while (rs.next()) {
 
 				for (int j = 1; j < numberOfColumns; j++) {
-					String columnValue = rs.getString(j);
+					Object columnValue = rs.getObject(j);
 					table[y][j-1] = columnValue;
 				}
 				y++;
