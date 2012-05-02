@@ -53,6 +53,7 @@ public class MainMenu extends javax.swing.JFrame {
 		jButton_Search = new javax.swing.JButton();
 		jTextField_Search = new javax.swing.JTextField();
 		jPanel_Main = new javax.swing.JPanel();
+		test = new javax.swing.JPanel();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setBackground(new java.awt.Color(102, 0, 102));
@@ -136,10 +137,12 @@ public class MainMenu extends javax.swing.JFrame {
 		jPanel_MainLayout.setHorizontalGroup(
 				jPanel_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 789, Short.MAX_VALUE)
+				.addComponent(test)
 				);
 		jPanel_MainLayout.setVerticalGroup(
 				jPanel_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 390, Short.MAX_VALUE)
+				.addComponent(test)
 				);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,16 +271,15 @@ public class MainMenu extends javax.swing.JFrame {
 
 	private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
 
-		
-		
-//		java.awt.EventQueue.invokeLater(new Runnable() {
-//
-//			public void run() {
-//				new testMain().setVisible(true);
-//
-//			}
-//		});
-	}//GEN-LAST:event_jButton_StockActionPerformed
+		try {
+			Stock s = new Stock();
+			test.add(s);
+			test.setVisible(true);
+			s.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		}
 
 	private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -350,6 +352,7 @@ public class MainMenu extends javax.swing.JFrame {
 	private javax.swing.JLabel jLabel_Bild;
 	private javax.swing.JLabel jLabel_Hazz;
 	private static javax.swing.JPanel jPanel_Main;
+	private static javax.swing.JPanel test;
 	private static javax.swing.JTextField jTextField_Search; // DM - lägg till static
 	// End of variables declaration//GEN-END:variables
 
