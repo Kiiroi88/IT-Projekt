@@ -129,7 +129,7 @@ public class Search_Fun
 
 			while(resultSet.next())
 			{
-				minAmountList.add(resultSet.getInt("min_amount"));
+				minAmountList.add(resultSet.getFloat("min_amount"));
 
 			}
 		}
@@ -152,7 +152,7 @@ public class Search_Fun
 
 			while(resultSet.next())
 			{
-				amountList.add(resultSet.getInt("amount"));
+				amountList.add(resultSet.getFloat("amount"));
 			}
 		}
 		System.out.println("Amount FRP information " + amountList);
@@ -203,27 +203,6 @@ public class Search_Fun
 		return typeList;
 	}
 
-//	public ArrayList selectStoredAt (ArrayList <String> input) throws Exception
-//	{
-//
-//		statement = MainMenu.con.createStatement(); // Creation of statement associated with the connection object
-//
-//		// Loop for article based on matched groceries
-//		for(int i=0; i < input.size(); i++)
-//		{
-//			String keyword = input.get(i);
-//			searchQuery = "SELECT Space FROM Product WHERE Name='" + keyword +"'";
-//
-//			resultSet = statement.executeQuery(searchQuery); // Execute the SQL statement that is saved in the query variable
-//
-//			while(resultSet.next())
-//			{
-//				storedAtList.add(resultSet.getInt("Space"));
-//			}
-//		}
-//		System.out.println("Stored at information " + storedAtList);
-//		return storedAtList;
-//	}
 
 	//Creates a table from retrieved columns from database  
 	public Object[][] combine (ArrayList input) throws Exception
@@ -327,15 +306,6 @@ public class Search_Fun
 				}
 			}
 
-//			if(i == 8)
-//			{
-//
-//				change = storedAtList;
-//				for(int j = 0; j < row; j++)
-//				{
-//					table[j][i] = change.get(j);
-//				} 
-//			}
 
 		}
 
