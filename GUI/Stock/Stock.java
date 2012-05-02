@@ -42,10 +42,6 @@ public class Stock extends javax.swing.JPanel {
 
         jTable_Stock.setAutoCreateRowSorter(true);
         jTable_Stock.setBackground(new java.awt.Color(255, 204, 204));
-//        fillInit.connect();
-//        fillInit.select(); 
-//		ArrayList <String> temp = searcher.searchThrough(fillInit.groceryList, "");
-//		System.out.println("Groceries matched in the database: " + temp);
 		PrintColumns P = new PrintColumns();
 		table = P.Print();
 		
@@ -53,7 +49,7 @@ public class Stock extends javax.swing.JPanel {
         jTable_Stock.setModel(new javax.swing.table.DefaultTableModel(
             table,
             new String [] {
-                "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type", "Space"
+                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
             }
         ));
         jTable_Stock.setEditingColumn(0);

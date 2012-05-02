@@ -9,7 +9,7 @@ public class Connect {
 	
 	public void Connect() {
 
-		String url = "jdbc:mysql://184.172.173.42:3306/chichiu_ITProjekt";
+		String url = "jdbc:mysql://184.172.173.42:3306/chichiu_Itp2";
 		
 
 		try {
