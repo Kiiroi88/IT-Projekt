@@ -12,7 +12,11 @@ import java.sql.*;
 import Connect.Connect;
 import GUI_COUNTER.Counter;
 import GUI_LOG_IN.GUI_LOG_IN;
+import Inventory.Inventory;
+import Order.Order;
+import Order.Order_gui;
 import Searches.Search_Fun;
+import Searches.Search_Gui;
 import Searches.Searcher;
 import Stock.Stock;
 
@@ -53,7 +57,7 @@ public class MainMenu extends javax.swing.JFrame {
 		jButton_Search = new javax.swing.JButton();
 		jTextField_Search = new javax.swing.JTextField();
 		jPanel_Main = new javax.swing.JPanel();
-		test = new javax.swing.JPanel();
+		Panel = new javax.swing.JPanel();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setBackground(new java.awt.Color(102, 0, 102));
@@ -79,6 +83,12 @@ public class MainMenu extends javax.swing.JFrame {
 
 		jButton_Inventory.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jButton_Inventory.setText("Inventory");
+		jButton_Inventory.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButton_InventoryActionPerformed(evt);
+			}
+		});
+		
 
 		jButton_Counter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jButton_Counter.setText("Counter");
@@ -137,12 +147,12 @@ public class MainMenu extends javax.swing.JFrame {
 		jPanel_MainLayout.setHorizontalGroup(
 				jPanel_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 789, Short.MAX_VALUE)
-				.addComponent(test)
+				.addComponent(Panel)
 				);
 		jPanel_MainLayout.setVerticalGroup(
 				jPanel_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 390, Short.MAX_VALUE)
-				.addComponent(test)
+				.addComponent(Panel)
 				);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,17 +233,34 @@ public class MainMenu extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void jButton_OrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OrderActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_jButton_OrderActionPerformed
+	private void jButton_OrderActionPerformed(java.awt.event.ActionEvent evt) {
+
+		try {
+			Panel.removeAll();
+			Order_gui o = new Order_gui();
+			Panel.add(o);
+			Panel.setVisible(true);
+			o.setVisible(true);
+			this.invalidate();
+			this.validate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 	private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
 		java.awt.EventQueue.invokeLater(new Runnable() {
 
-            public void run() {
-                new GUI_LOG_IN().setVisible(true);
-            }
-        });
+			public void run() {
+				new GUI_LOG_IN().setVisible(true);
+
+			}
+
+		});	
+
+		
 	}//GEN-LAST:event_jButton_LoginActionPerformed
 
 	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
@@ -261,35 +288,66 @@ public class MainMenu extends javax.swing.JFrame {
 			try 
 			{
 				guiTable2 = search_fun2.combine(temp2);
+				Search_Gui s = new Search_Gui(guiTable2);
+				Panel.removeAll();
+				Panel.add(s);
+				Panel.setVisible(true);
+				s.setVisible(true);
+				this.invalidate();
+				this.validate();
 			} 
 			catch (Exception e) 
 			{ 
 				e.printStackTrace();
 			}
 		}
-	}
+
+		}
+
 
 	private void jButton_StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StockActionPerformed
 
 		try {
 			Stock s = new Stock();
-			test.add(s);
-			test.setVisible(true);
+			Panel.removeAll();
+			Panel.add(s);
+			Panel.setVisible(true);
 			s.setVisible(true);
+			this.invalidate();
+			this.validate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		}
 
 	private void jButton_CounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CounterActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
+		java.awt.EventQueue.invokeLater(new Runnable() {
 
-            public void run() {
-                new Counter().setVisible(true);
-            }
-        });
+			public void run() {
+				new Counter().setVisible(true);
+
+			}
+
+		});
+		
 	}//GEN-LAST:event_jButton_CounterActionPerformed
 
+	private void jButton_InventoryActionPerformed(java.awt.event.ActionEvent evt) {
+		
+		try {
+			Inventory i = new Inventory();
+			Panel.removeAll();
+			Panel.add(i);
+			Panel.setVisible(true);
+			i.setVisible(true);
+			this.invalidate();
+			this.validate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	/**
 	 * @param args the command line arguments
 	 * @throws Exception 
@@ -352,7 +410,7 @@ public class MainMenu extends javax.swing.JFrame {
 	private javax.swing.JLabel jLabel_Bild;
 	private javax.swing.JLabel jLabel_Hazz;
 	private static javax.swing.JPanel jPanel_Main;
-	private static javax.swing.JPanel test;
+	private static javax.swing.JPanel Panel;
 	private static javax.swing.JTextField jTextField_Search; // DM - lägg till static
 	// End of variables declaration//GEN-END:variables
 
