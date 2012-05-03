@@ -3,6 +3,8 @@ package gui;
 import java.util.ArrayList;
 import java.sql.*;
 
+import dish.Dish;
+
 import Connect.Connect;
 import GUI_COUNTER.Counter;
 import GUI_LOG_IN.GUI_LOG_IN;
@@ -82,6 +84,11 @@ public class MainMenu extends javax.swing.JFrame {
 
 		jButton_Dish.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jButton_Dish.setText("Dish");
+		jButton_Dish.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButton_DishActionPerformed(evt);
+			}
+		});
 
 		jButton_Login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jButton_Login.setText("Log in");
@@ -224,6 +231,23 @@ public class MainMenu extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
+	
+	private void jButton_DishActionPerformed(java.awt.event.ActionEvent evt) {
+		
+		try {
+			Panel.removeAll();
+			Dish d = new Dish();
+			Panel.add(d);
+			Panel.setVisible(true);
+			d.setVisible(true);
+			this.invalidate();
+			this.validate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	private void jButton_OrderActionPerformed(java.awt.event.ActionEvent evt) {
 
 		try {
