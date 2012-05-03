@@ -34,7 +34,7 @@ public class Counter extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(java.awt.SystemColor.controlHighlight);
+        setBackground(new java.awt.Color(235,235,235));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
