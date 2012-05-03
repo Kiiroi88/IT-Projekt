@@ -40,7 +40,7 @@ public class Inventory extends javax.swing.JPanel {
 		table = P.Print();
 		
         jTable_Inventory_Stock.setAutoCreateRowSorter(true);
-        jTable_Inventory_Stock.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Inventory_Stock.setBackground(new java.awt.Color(255, 255, 255));
         jTable_Inventory_Stock.setModel(new javax.swing.table.DefaultTableModel(
             table,
             new String [] {
@@ -60,7 +60,7 @@ public class Inventory extends javax.swing.JPanel {
         });
 
         jTable_New_Product.setAutoCreateRowSorter(true);
-        jTable_New_Product.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_New_Product.setBackground(new java.awt.Color(255, 255, 255));
         jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null}

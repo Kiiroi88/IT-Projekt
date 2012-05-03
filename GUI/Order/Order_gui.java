@@ -73,7 +73,7 @@ public class Order_gui extends javax.swing.JPanel {
         });
 
         jTable_Add.setAutoCreateRowSorter(true);
-        jTable_Add.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Add.setBackground(new java.awt.Color(255, 255, 255));
         jTable_Add.setModel(new javax.swing.table.DefaultTableModel(
         		table_Search,
             new String [] {
@@ -94,7 +94,7 @@ public class Order_gui extends javax.swing.JPanel {
         jScrollPane3.setViewportView(jTable_Add);
 
         jTable_Order.setAutoCreateRowSorter(true);
-        jTable_Order.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Order.setBackground(new java.awt.Color(255, 255, 255));
         jTable_Order.setModel(new javax.swing.table.DefaultTableModel(
             table,
             new String [] {

@@ -36,7 +36,7 @@ public class Search_Gui extends javax.swing.JPanel {
         jTable_Stock = new javax.swing.JTable();
 
         jTable_Stock.setAutoCreateRowSorter(true);
-        jTable_Stock.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Stock.setBackground(new java.awt.Color(255, 255, 255));
 		table = x;
 		
 		

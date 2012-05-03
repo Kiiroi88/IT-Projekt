@@ -36,7 +36,7 @@ public class GUI_LOG_IN extends javax.swing.JFrame {
         jLabel_Password = new javax.swing.JLabel();
 
         jLabel_Login_Rubrik.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel_Login_Rubrik.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel_Login_Rubrik.setForeground(new java.awt.Color(0, 0, 0));
         jLabel_Login_Rubrik.setText("Log in");
 
         jPasswordField_Password.setMinimumSize(new java.awt.Dimension(100, 20));
