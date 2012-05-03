@@ -43,7 +43,6 @@ public class Search_Fun
 
 		}
 
-		System.out.println(groceryList);
 		return groceryList;
 	}
 	

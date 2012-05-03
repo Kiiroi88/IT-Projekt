@@ -4,6 +4,15 @@
  */
 package Order;
 
+import gui.MainMenu;
+
+import java.awt.Panel;
+import java.util.ArrayList;
+
+import Searches.Search_Fun;
+import Searches.Search_Gui;
+import Searches.Searcher;
+
 /**
  *
  * @author DELL
@@ -12,8 +21,11 @@ public class Order_gui extends javax.swing.JPanel {
 
 	Object[][] table = null;
 
-    public Order_gui() {
-        initComponents();
+	Object[][] table_Search = null;
+
+	
+    public Order_gui(Object [][] x)throws Exception {
+        initComponents(x);
     }
 
     /**
@@ -23,20 +35,28 @@ public class Order_gui extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(Object [][] x)throws Exception {
 
         jButton_Ok = new javax.swing.JButton();
-        jButton_New_product = new javax.swing.JButton();
+        jButton_Add = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable_New_Product = new javax.swing.JTable();
+        jTable_Add = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jTable_Order = new javax.swing.JTable();
+        jLabel_Order_Products = new javax.swing.JLabel();
+        jTextField_Order_Search = new javax.swing.JTextField();
+        jButton_Order_Search = new javax.swing.JButton();
 
         printOrder po = new printOrder();
 		table = po.PrintOrder();
-
-        
+		table_Search = x;
+		
+		jButton_Order_Search.setText("Search");
+		jButton_Order_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButton_Order_SearchActionPerformed(evt);
+            }
+        });
         jButton_Ok.setText("Ok");
         jButton_Ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,32 +64,17 @@ public class Order_gui extends javax.swing.JPanel {
             }
         });
 
-        jButton_New_product.setText("New product");
-        jButton_New_product.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Add.setText("Add to order");
+        jButton_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_New_productActionPerformed(evt);
+                jButton_AddActionPerformed(evt);
             }
         });
 
-        jTable_New_Product.setAutoCreateRowSorter(true);
-        jTable_New_Product.setBackground(new java.awt.Color(255, 204, 204));
-        jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
-            }
-        ));
-        jTable_New_Product.setEditingColumn(0);
-        jTable_New_Product.setEditingRow(0);
-        jTable_New_Product.setRowHeight(20);
-        jScrollPane3.setViewportView(jTable_New_Product);
-
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(255, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-           table,
+        jTable_Add.setAutoCreateRowSorter(true);
+        jTable_Add.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Add.setModel(new javax.swing.table.DefaultTableModel(
+        		table_Search,
             new String [] {
                 "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
             }
@@ -82,15 +87,36 @@ public class Order_gui extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setEditingColumn(0);
-        jTable1.setEditingRow(0);
-        jTable1.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(5).setResizable(false);
-        jTable1.getColumnModel().getColumn(6).setResizable(false);
+        jTable_Add.setEditingColumn(0);
+        jTable_Add.setEditingRow(0);
+        jTable_Add.setRowHeight(20);
+        jScrollPane3.setViewportView(jTable_Add);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Order Products");
+        jTable_Order.setAutoCreateRowSorter(true);
+        jTable_Order.setBackground(new java.awt.Color(255, 204, 204));
+        jTable_Order.setModel(new javax.swing.table.DefaultTableModel(
+            table,
+            new String [] {
+                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable_Order.setEditingColumn(0);
+        jTable_Order.setEditingRow(0);
+        jTable_Order.setRowHeight(20);
+        jScrollPane1.setViewportView(jTable_Order);
+        jTable_Order.getColumnModel().getColumn(5).setResizable(false);
+        jTable_Order.getColumnModel().getColumn(6).setResizable(false);
+
+        jLabel_Order_Products.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel_Order_Products.setText("Order Products");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,11 +127,16 @@ public class Order_gui extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton_New_product)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jTextField_Order_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton_Order_Search)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton_Add))
                                 .addComponent(jButton_Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel_Order_Products))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -116,15 +147,18 @@ public class Order_gui extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel_Order_Products)
                 .addGap(1, 1, 1)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Ok)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_New_product)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Add)
+                    .addComponent(jTextField_Order_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Order_Search))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -133,17 +167,54 @@ public class Order_gui extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_OkActionPerformed
 
-    private void jButton_New_productActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_New_productActionPerformed
+    private void jButton_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_New_productActionPerformed
+    }//GEN-LAST:event_jButton_AddActionPerformed
 
+    private void jButton_Order_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AddActionPerformed
+    	if (evt.getSource() == jButton_Order_Search )
+		{
+
+			String searchWord = jTextField_Order_Search.getText();
+			Search_Fun search_fun2 = new Search_Fun();
+			Searcher searcher2 = new Searcher();
+			try {
+
+				search_fun2.select();
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+
+			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
+			Object [][] guiTable2 = null;
+			try 
+			{
+				guiTable2 = search_fun2.combine(temp2);
+				Order_gui s = new Order_gui(guiTable2);
+				MainMenu.Panel.removeAll();
+				MainMenu.Panel.add(s);
+				MainMenu.Panel.setVisible(true);
+				s.setVisible(true);
+				MainMenu.Panel.invalidate();
+				MainMenu.Panel.validate();
+			} 
+			catch (Exception e) 
+			{ 
+				e.printStackTrace();
+			}
+		}
+    }//GEN-LAST:event_jButton_AddActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_New_product;
+    private javax.swing.JButton jButton_Add;
     private javax.swing.JButton jButton_Ok;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton_Order_Search;
+    private javax.swing.JLabel jLabel_Order_Products;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable_New_Product;
+    private javax.swing.JTable jTable_Add;
+    private javax.swing.JTable jTable_Order;
+    private javax.swing.JTextField jTextField_Order_Search;
     // End of variables declaration//GEN-END:variables
 }
