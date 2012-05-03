@@ -4,15 +4,17 @@
  */
 package Inventory;
 
+import Order.printOrder;
+import Searches.PrintColumns;
+
 /**
  *
  * @author DELL
  */
 public class Inventory extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Inventory
-     */
+	Object[][] table = null;
+	
     public Inventory() {
         initComponents();
     }
@@ -32,14 +34,14 @@ public class Inventory extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable_New_Product = new javax.swing.JTable();
         jButton_Inventory_New_product = new javax.swing.JButton();
-
+       
+        PrintColumns P = new PrintColumns();
+		table = P.Print();
+		
         jTable_Inventory_Stock.setAutoCreateRowSorter(true);
         jTable_Inventory_Stock.setBackground(new java.awt.Color(255, 204, 204));
         jTable_Inventory_Stock.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
+            table,
             new String [] {
                 "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type", "Space"
             }
