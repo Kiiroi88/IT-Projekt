@@ -33,7 +33,7 @@ public class MainMenu extends javax.swing.JFrame {
 		jButton_Counter = new javax.swing.JButton();
 		jButton_Dish = new javax.swing.JButton();
 		jButton_Login = new javax.swing.JButton();
-		jButton_Checklist = new javax.swing.JButton();
+		jButton_Delivery = new javax.swing.JButton();
 		jLabel_Bild = new javax.swing.JLabel();
 		jLabel_Hazz = new javax.swing.JLabel();
 		jButton_Search = new javax.swing.JButton();
@@ -137,8 +137,8 @@ public class MainMenu extends javax.swing.JFrame {
 				.addComponent(Panel)
 				);
 		
-		jButton_Checklist.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton_Checklist.setText("Checklist");
+		jButton_Delivery.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton_Delivery.setText("Delivery");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,7 +163,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(jButton_Stock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton_Checklist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton_Delivery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTextField_Search, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
@@ -203,7 +203,7 @@ public class MainMenu extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton_Stock)
                                 .addGap(8, 8, 8)
-                                .addComponent(jButton_Checklist)
+                                .addComponent(jButton_Delivery)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Inventory)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -370,7 +370,7 @@ public class MainMenu extends javax.swing.JFrame {
 	private javax.swing.JButton jButton_Inventory;
 	private javax.swing.JButton jButton_Login;
 	private javax.swing.JButton jButton_Order;
-	private javax.swing.JButton jButton_Checklist;
+	private javax.swing.JButton jButton_Delivery;
 	private static javax.swing.JButton jButton_Search; // DM - lägg till static
 	private javax.swing.JButton jButton_Stock;
 	private javax.swing.JLabel jLabel_Bild;
