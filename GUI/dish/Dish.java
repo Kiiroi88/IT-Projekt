@@ -4,12 +4,17 @@
  */
 package dish;
 
+import Order.printOrder;
+
 /**
  *
  * @author DELL
  */
 public class Dish extends javax.swing.JPanel {
 
+	
+	Object[][] table = null;
+	
     /**
      * Creates new form Dish
      */
@@ -32,14 +37,14 @@ public class Dish extends javax.swing.JPanel {
         jButton_Delete = new javax.swing.JButton();
         jButton_Create = new javax.swing.JButton();
 
+        printDish pd = new printDish();
+		table = pd.PrintDish();
+        
         jTable_Stock.setAutoCreateRowSorter(true);
         jTable_Stock.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
+            table,
             new String [] {
-                "ID", "Name", "Ref Nr", "Type", "Unit", "Required Amount", "Rec ID"
+                "Product ID", "Dish ID", "Required Amount", "Ref No", "Type", "Unit"
             }
         ));
         jTable_Stock.setColumnSelectionAllowed(true);
