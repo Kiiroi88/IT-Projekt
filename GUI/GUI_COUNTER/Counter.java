@@ -27,18 +27,17 @@ public class Counter extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jTable_Lista = new javax.swing.JTable();
+        jButton_Pyttipanna = new javax.swing.JButton();
+        jButton_Dryck = new javax.swing.JButton();
+        jButton_Bong = new javax.swing.JButton();
+        jButton_Buy = new javax.swing.JButton();
+        jLabel_Kassa = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.SystemColor.controlHighlight);
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Lista.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTable_Lista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -49,29 +48,29 @@ public class Counter extends javax.swing.JFrame {
                 "Namn", "Pris"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable_Lista);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("Pyttipanna");
-        jButton1.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI_COUNTER/button.jpg"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Pyttipanna.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton_Pyttipanna.setText("Pyttipanna");
+        jButton_Pyttipanna.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI_COUNTER/button.jpg"))); // NOI18N
+        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("Dryck");
+        jButton_Dryck.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton_Dryck.setText("Dryck");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Bong");
+        jButton_Bong.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton_Bong.setText("Bong");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setText("Buy");
+        jButton_Buy.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton_Buy.setText("Buy");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Kassa");
+        jLabel_Kassa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel_Kassa.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel_Kassa.setText("Kassa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,33 +85,33 @@ public class Counter extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton3)
+                                        .addComponent(jButton_Bong)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton4))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jButton_Buy))
+                                    .addComponent(jLabel_Kassa, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 618, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(jButton_Dryck)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jButton_Pyttipanna)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_Kassa, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_Dryck)
+                    .addComponent(jButton_Pyttipanna))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jButton_Bong)
+                    .addComponent(jButton_Buy))
                 .addContainerGap())
         );
 
@@ -165,12 +164,12 @@ public class Counter extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton_Pyttipanna;
+    private javax.swing.JButton jButton_Dryck;
+    private javax.swing.JButton jButton_Bong;
+    private javax.swing.JButton jButton_Buy;
+    private javax.swing.JLabel jLabel_Kassa;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_Lista;
     // End of variables declaration//GEN-END:variables
 }
