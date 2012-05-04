@@ -4,6 +4,8 @@
  */
 package GUI_COUNTER;
 
+import Sales.*;
+
 /**
  *
  * @author DELL
@@ -55,33 +57,24 @@ public class Counter extends javax.swing.JFrame {
         jButton_Pyttipanna.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI_COUNTER/button.jpg"))); // NOI18N
         jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_PyttipannaActionPerformed(evt);
+                try {
+					jButton_PyttipannaActionPerformed(evt);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
         jButton_Dryck.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Dryck.setText("Dryck");
-        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_DryckActionPerformed(evt);
-            }
-        });
 
         jButton_Bong.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Bong.setText("Bong");
-        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_BongActionPerformed(evt);
-            }
-        });
+
         jButton_Buy.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Buy.setText("Buy");
-        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_BuyActionPerformed(evt);
-            }
-        });
-        
+
         jLabel_Kassa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel_Kassa.setForeground(new java.awt.Color(153, 153, 153));
         jLabel_Kassa.setText("Kassa");
@@ -132,18 +125,16 @@ public class Counter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_PyttipannaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-    private void jButton_DryckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-    private void jButton_BongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-    private void jButton_BuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_PyttipannaActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    	if(evt.getSource() == jButton_Pyttipanna)
+    	{
+    		choice = 1;
+    		GetOrder getOrder = new GetOrder(choice);
+    		getOrder.reduceAmount();
+    	}
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -193,5 +184,6 @@ public class Counter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Kassa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Lista;
+    private int choice;
     // End of variables declaration//GEN-END:variables
 }
