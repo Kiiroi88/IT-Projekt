@@ -61,13 +61,27 @@ public class Counter extends javax.swing.JFrame {
 
         jButton_Dryck.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Dryck.setText("Dryck");
+        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_DryckActionPerformed(evt);
+            }
+        });
 
         jButton_Bong.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Bong.setText("Bong");
-
+        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BongActionPerformed(evt);
+            }
+        });
         jButton_Buy.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton_Buy.setText("Buy");
-
+        jButton_Pyttipanna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BuyActionPerformed(evt);
+            }
+        });
+        
         jLabel_Kassa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel_Kassa.setForeground(new java.awt.Color(153, 153, 153));
         jLabel_Kassa.setText("Kassa");
@@ -121,7 +135,15 @@ public class Counter extends javax.swing.JFrame {
     private void jButton_PyttipannaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void jButton_DryckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_BongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_BuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * @param args the command line arguments
      */
