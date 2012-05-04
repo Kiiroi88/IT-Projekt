@@ -144,7 +144,7 @@ public class Counter extends javax.swing.JFrame {
     private void jButton_PyttipannaActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
     	if(evt.getSource() == jButton_Pyttipanna)
     	{
-    		choice = 1;
+    		choice = 3;
     		GetOrder getOrder = new GetOrder(choice);
     		getOrder.reduceAmount();
     	}
