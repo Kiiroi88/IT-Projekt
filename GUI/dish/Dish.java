@@ -47,7 +47,6 @@ public class Dish extends javax.swing.JPanel {
                 "Product ID", "Dish ID", "Required Amount", "Ref No", "Type", "Unit"
             }
         ));
-        jTable_Stock.setColumnSelectionAllowed(true);
         jTable_Stock.setEditingColumn(0);
         jTable_Stock.setEditingRow(0);
         jTable_Stock.setRowHeight(20);
