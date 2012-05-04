@@ -34,7 +34,8 @@ public class Counter extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(235,235,235));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(java.awt.SystemColor.controlHighlight);
 
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -45,13 +46,13 @@ public class Counter extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Typ", "Pris"
+                "Namn", "Pris"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("Mat");
+        jButton1.setText("Pyttipanna");
         jButton1.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI_COUNTER/button.jpg"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,10 +67,10 @@ public class Counter extends javax.swing.JFrame {
         jButton3.setText("Bong");
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setText("Köp");
+        jButton4.setText("Buy");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0,0,0));
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Kassa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
