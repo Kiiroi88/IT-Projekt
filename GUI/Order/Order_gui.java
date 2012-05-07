@@ -9,6 +9,10 @@ import gui.MainMenu;
 import java.awt.Panel;
 import java.util.ArrayList;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
+
 import Searches.Search_Fun;
 import Searches.Search_Gui;
 import Searches.Searcher;
@@ -94,6 +98,17 @@ public class Order_gui extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable_Add.getModel().addTableModelListener(new TableModelListener() {
+
+            public void tableChanged(TableModelEvent e) {
+               System.out.println(e);
+               int row = e.getFirstRow();
+               int column = e.getColumn();
+               TableModel model = (TableModel)e.getSource();
+               String columnName = model.getColumnName(column);
+//               table_Add[row][column] = model.getValueAt(row, column);
+            }
+          });
         jTable_Add.setColumnSelectionAllowed(true);
         jTable_Add.setEditingColumn(0);
         jTable_Add.setEditingRow(0);
