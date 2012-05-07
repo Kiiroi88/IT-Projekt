@@ -73,25 +73,33 @@ public class Order_gui extends javax.swing.JPanel {
         });
 
         jTable_Add.setAutoCreateRowSorter(true);
-        jTable_Add.setBackground(new java.awt.Color(255, 255, 255));
         jTable_Add.setModel(new javax.swing.table.DefaultTableModel(
         		table_Search,
             new String [] {
-                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
+                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount", "Select"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable_Add.setColumnSelectionAllowed(true);
         jTable_Add.setEditingColumn(0);
         jTable_Add.setEditingRow(0);
         jTable_Add.setRowHeight(20);
         jScrollPane3.setViewportView(jTable_Add);
+        jTable_Add.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jTable_Order.setAutoCreateRowSorter(true);
         jTable_Order.setBackground(new java.awt.Color(255, 255, 255));
@@ -184,7 +192,7 @@ public class Order_gui extends javax.swing.JPanel {
 		{
 
 			String searchWord = jTextField_Order_Search.getText();
-			Search_Fun search_fun2 = new Search_Fun();
+			Search_Order search_fun2 = new Search_Order();
 			Searcher searcher2 = new Searcher();
 			try {
 
