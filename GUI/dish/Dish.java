@@ -44,7 +44,7 @@ public class Dish extends javax.swing.JPanel {
         jTable_Stock.setModel(new javax.swing.table.DefaultTableModel(
             table,
             new String [] {
-                "Product ID", "Dish ID", "Required Amount", "Ref No", "Type", "Unit"
+                "Product ID", "Dish", "Required Amount", "Ref No", "Type", "Unit"
             }
         ));
         jTable_Stock.setEditingColumn(0);

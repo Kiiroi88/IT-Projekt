@@ -8,13 +8,12 @@ import java.util.ArrayList;
 public class printDish {
 
 	Object[][] table = null;
-	
+
 	public Object[][] PrintDish() {
 
 		Object[][] table = null;
-		 String query = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_ingredient.id,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.recipe_ingredient.idvara";
-		 String query2 = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_ingredient.id,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.recipe_ingredient.idvara";
-		 
+		String query = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
+		String query2 = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
 		Statement stmt;
 		Statement stmt2;
 
@@ -44,7 +43,7 @@ public class printDish {
 
 				for (int j = 1; j <= numberOfColumns; j++) {
 					Object columnValue = rs.getObject(j);
-					table[y][j-1] = columnValue;
+					table[y][j - 1] = columnValue;
 				}
 				y++;
 			}
@@ -59,5 +58,4 @@ public class printDish {
 
 	}
 
-	
 }
