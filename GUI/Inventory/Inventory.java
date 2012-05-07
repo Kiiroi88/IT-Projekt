@@ -6,6 +6,10 @@ package Inventory;
 
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
+
 import gui.MainMenu;
 import Order.Order_gui;
 import Order.printOrder;
@@ -19,7 +23,7 @@ public class Inventory extends javax.swing.JPanel {
 
 	Object[][] table = null;
 	static Object[][] table_Add = new Object [][] {
-            {"id", "namn",null , null, null, null, null, "type"}
+            {null, null,null , null, null, null, null}
     };
     public Inventory() {
         initComponents();
@@ -70,10 +74,22 @@ public class Inventory extends javax.swing.JPanel {
         jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
         		table_Add,
             new String [] {
-        				"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount","Min Amount"
+        				"Name", "Ref Nr", "Price", "Type", "Unit", "Amount","Min Amount"
             }
         		
         ));
+        jTable_New_Product.getModel().addTableModelListener(new TableModelListener() {
+
+            public void tableChanged(TableModelEvent e) {
+               System.out.println(e);
+               int row = e.getFirstRow();
+               int column = e.getColumn();
+               TableModel model = (TableModel)e.getSource();
+               String columnName = model.getColumnName(column);
+               table_Add[row][column] = model.getValueAt(row, column);
+            }
+          });
+        jTable_New_Product.setValueAt("",0,0);
         jTable_New_Product.setEditingColumn(0);
         jTable_New_Product.setEditingRow(0);
         jTable_New_Product.setRowHeight(20);
@@ -126,12 +142,11 @@ public class Inventory extends javax.swing.JPanel {
     	if (evt.getSource() == jButton_Inventory_New_product )
     	{
     		
-    		MouseMotionListener[] guiTable2 = null;
-    		guiTable2 = jTable_Inventory_Stock.getMouseMotionListeners();
-    		System.out.println(guiTable2[0]);
+    		Object[][] guiTable2 = null;
+    		guiTable2 = table_Add;
     		try {
     			
-//			Inventory_Add A = new Inventory_Add(guiTable2);
+			Inventory_Add A = new Inventory_Add(guiTable2);
 			} catch (Exception e) {
 
 				e.printStackTrace();

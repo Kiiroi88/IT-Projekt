@@ -35,7 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
 		jButton_Inventory = new javax.swing.JButton();
 		jButton_Counter = new javax.swing.JButton();
 		jButton_Dish = new javax.swing.JButton();
-		jButton_Login = new javax.swing.JButton();
+		jButton_Archive = new javax.swing.JButton();
 		jButton_Delivery = new javax.swing.JButton();
 		jLabel_Bild = new javax.swing.JLabel();
 		jLabel_Hazz = new javax.swing.JLabel();
@@ -99,11 +99,11 @@ public class MainMenu extends javax.swing.JFrame {
 			}
 		});
 
-		jButton_Login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-		jButton_Login.setText("Log in");
-		jButton_Login.addActionListener(new java.awt.event.ActionListener() {
+		jButton_Archive.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+		jButton_Archive.setText("Archive");
+		jButton_Archive.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton_LoginActionPerformed(evt);
+				jButton_ArchiveActionPerformed(evt);
 			}
 		});
 
@@ -169,7 +169,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_Archive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton_Dish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton_Counter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton_Order, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -229,7 +229,7 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Dish)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_Login)
+                                .addComponent(jButton_Archive)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -285,7 +285,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 		}
 	}
 
-	private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
+	private void jButton_ArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
 		java.awt.EventQueue.invokeLater(new Runnable() {
 
 			public void run() {
@@ -412,7 +412,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 	private javax.swing.JButton jButton_Counter;
 	private javax.swing.JButton jButton_Dish;
 	private javax.swing.JButton jButton_Inventory;
-	private javax.swing.JButton jButton_Login;
+	private javax.swing.JButton jButton_Archive;
 	private javax.swing.JButton jButton_Order;
 	private javax.swing.JButton jButton_Delivery;
 	private static javax.swing.JButton jButton_Search; // DM - lägg till static
