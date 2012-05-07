@@ -4,7 +4,10 @@
  */
 package dish;
 
+import CreateDish.CreateDish;
+import GUI_COUNTER.Counter;
 import Order.printOrder;
+import Stock.Stock;
 
 /**
  *
@@ -103,7 +106,15 @@ public class Dish extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+		
+    	java.awt.EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				new CreateDish().setVisible(true);
+
+			}
+		});
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
