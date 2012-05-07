@@ -4,6 +4,10 @@
  */
 package Inventory;
 
+import java.awt.event.MouseMotionListener;
+
+import gui.MainMenu;
+import Order.Order_gui;
 import Order.printOrder;
 import Searches.PrintColumns;
 
@@ -14,7 +18,9 @@ import Searches.PrintColumns;
 public class Inventory extends javax.swing.JPanel {
 
 	Object[][] table = null;
-	
+	static Object[][] table_Add = new Object [][] {
+            {"id", "namn",null , null, null, null, null, "type"}
+    };
     public Inventory() {
         initComponents();
     }
@@ -44,14 +50,14 @@ public class Inventory extends javax.swing.JPanel {
         jTable_Inventory_Stock.setModel(new javax.swing.table.DefaultTableModel(
             table,
             new String [] {
-                "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type", "Space"
+            		"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount","Min Amount"
             }
         ));
         jTable_Inventory_Stock.setEditingColumn(0);
         jTable_Inventory_Stock.setEditingRow(0);
         jTable_Inventory_Stock.setRowHeight(20);
         jScrollPane1.setViewportView(jTable_Inventory_Stock);
-
+        
         jButton_Inventory_Ok.setText("Ok");
         jButton_Inventory_Ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,16 +68,16 @@ public class Inventory extends javax.swing.JPanel {
         jTable_New_Product.setAutoCreateRowSorter(true);
         jTable_New_Product.setBackground(new java.awt.Color(255, 255, 255));
         jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null}
-            },
+        		table_Add,
             new String [] {
-                "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type"
+        				"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount","Min Amount"
             }
+        		
         ));
         jTable_New_Product.setEditingColumn(0);
         jTable_New_Product.setEditingRow(0);
         jTable_New_Product.setRowHeight(20);
+        jTable_Inventory_Stock.enableInputMethods(true);
         jScrollPane3.setViewportView(jTable_New_Product);
 
         jButton_Inventory_New_product.setText("New product");
@@ -115,9 +121,36 @@ public class Inventory extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    	  
     private void jButton_Inventory_New_productActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Inventory_New_productActionPerformed
-        // TODO add your handling code here:
+    	if (evt.getSource() == jButton_Inventory_New_product )
+    	{
+    		
+    		MouseMotionListener[] guiTable2 = null;
+    		guiTable2 = jTable_Inventory_Stock.getMouseMotionListeners();
+    		System.out.println(guiTable2[0]);
+    		try {
+    			
+//			Inventory_Add A = new Inventory_Add(guiTable2);
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+			try 
+			{
+				Inventory s = new Inventory();
+				MainMenu.Panel.removeAll();
+				MainMenu.Panel.add(s);
+				MainMenu.Panel.setVisible(true);
+				s.setVisible(true);
+				MainMenu.Panel.invalidate();
+				MainMenu.Panel.validate();
+			} 
+			catch (Exception e) 
+			{ 
+				e.printStackTrace();
+			}
+    	}
     }//GEN-LAST:event_jButton_Inventory_New_productActionPerformed
 
     private void jButton_Inventory_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Inventory_OkActionPerformed

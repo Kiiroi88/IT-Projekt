@@ -38,7 +38,7 @@ public class Counter extends javax.swing.JFrame {
         jButton_Buy = new javax.swing.JButton();
         jLabel_Kassa = new javax.swing.JLabel();
 
-        setBackground(java.awt.SystemColor.controlHighlight);
+        setBackground(new java.awt.Color(235, 235, 235));
 
         jTable_Lista.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable_Lista.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,7 +92,7 @@ public class Counter extends javax.swing.JFrame {
         });
         
         jLabel_Kassa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_Kassa.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel_Kassa.setForeground(new java.awt.Color(0, 0, 0));
         jLabel_Kassa.setText("Kassa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

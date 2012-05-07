@@ -27,56 +27,47 @@ public class Delivery extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_Inventory_Stock = new javax.swing.JTable();
+        jTable_DeliveryList = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        jTable_NewProduct = new javax.swing.JTable();
         checkbox_marker_alla = new java.awt.Checkbox();
         jButton_Ok = new javax.swing.JButton();
         jButton_New_product = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_Delivery = new javax.swing.JLabel();
 
-        jTable_Inventory_Stock.setAutoCreateRowSorter(true);
-        jTable_Inventory_Stock.setBackground(new java.awt.Color(255, 204, 204));
-        jTable_Inventory_Stock.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_DeliveryList.setAutoCreateRowSorter(true);
+        jTable_DeliveryList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type", "Space", "Approval"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTable_Inventory_Stock.setColumnSelectionAllowed(true);
-        jTable_Inventory_Stock.setEditingColumn(0);
-        jTable_Inventory_Stock.setEditingRow(0);
-        jTable_Inventory_Stock.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable_Inventory_Stock);
-        jTable_Inventory_Stock.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-        jTable5.setAutoCreateRowSorter(true);
-        jTable5.setBackground(new java.awt.Color(255, 204, 204));
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Ref Nr", "Unit", "Quantity", "Amount", "Price", "Type", "Space"
+                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
             }
         ));
-        jTable5.setColumnSelectionAllowed(true);
-        jTable5.setEditingColumn(0);
-        jTable5.setEditingRow(0);
-        jTable5.setRowHeight(20);
-        jScrollPane5.setViewportView(jTable5);
-        jTable5.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTable_DeliveryList.setColumnSelectionAllowed(true);
+        jTable_DeliveryList.setEditingColumn(0);
+        jTable_DeliveryList.setEditingRow(0);
+        jTable_DeliveryList.setRowHeight(20);
+        jTable_DeliveryList.setSelectionBackground(new java.awt.Color(235, 235, 235));
+        jScrollPane1.setViewportView(jTable_DeliveryList);
+        jTable_DeliveryList.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jTable_NewProduct.setAutoCreateRowSorter(true);
+        jTable_NewProduct.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
+            }
+        ));
+        jTable_NewProduct.setColumnSelectionAllowed(true);
+        jTable_NewProduct.setEditingColumn(0);
+        jTable_NewProduct.setEditingRow(0);
+        jTable_NewProduct.setRowHeight(20);
+        jScrollPane5.setViewportView(jTable_NewProduct);
+        jTable_NewProduct.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         checkbox_marker_alla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         checkbox_marker_alla.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -101,8 +92,8 @@ public class Delivery extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Delivery");
+        jLabel_Delivery.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel_Delivery.setText("Delivery");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -117,7 +108,7 @@ public class Delivery extends javax.swing.JPanel {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabel_Delivery)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(checkbox_marker_alla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -128,7 +119,7 @@ public class Delivery extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(checkbox_marker_alla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel_Delivery))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -157,10 +148,10 @@ public class Delivery extends javax.swing.JPanel {
     private java.awt.Checkbox checkbox_marker_alla;
     private javax.swing.JButton jButton_New_product;
     private javax.swing.JButton jButton_Ok;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_Delivery;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable_Inventory_Stock;
+    private javax.swing.JTable jTable_NewProduct;
+    private javax.swing.JTable jTable_DeliveryList;
     // End of variables declaration//GEN-END:variables
 }

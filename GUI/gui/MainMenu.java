@@ -6,6 +6,7 @@ import java.sql.*;
 import dish.Dish;
 
 import Connect.Connect;
+import Delivery.Delivery;
 import GUI_COUNTER.Counter;
 import GUI_LOG_IN.GUI_LOG_IN;
 import Inventory.Inventory;
@@ -56,7 +57,15 @@ public class MainMenu extends javax.swing.JFrame {
 				jButton_StockActionPerformed(evt);
 			}
 		});
-
+		
+		jButton_Delivery.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+		jButton_Delivery.setText("Stock");
+		jButton_Delivery.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButton_DeliveryActionPerformed(evt);
+			}
+		});
+		
 		jButton_Order.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jButton_Order.setText("Order");
 		jButton_Order.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +255,20 @@ public class MainMenu extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
 	}
-	
+private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
+		
+		try {
+			Panel.removeAll();
+			Delivery d = new Delivery();
+			Panel.add(d);
+			Panel.setVisible(true);
+			d.setVisible(true);
+			this.invalidate();
+			this.validate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	private void jButton_OrderActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -261,8 +283,6 @@ public class MainMenu extends javax.swing.JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 	private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
