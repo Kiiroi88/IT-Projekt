@@ -20,7 +20,7 @@ import Searches.PrintColumns;
  * @author DELL
  */
 public class Inventory extends javax.swing.JPanel {
-
+	Object id = null;
 	Object[][] table = null;
 	static Object[][] table_Add = new Object [][] {
             {null, null,null , null, null, null, null}
@@ -77,7 +77,7 @@ public class Inventory extends javax.swing.JPanel {
                System.out.println(columnName);
                table[row][column] = model.getValueAt(row, column);
                Object value = model.getValueAt(row, column);
-               Object id = table[row][0];
+               id = table[row][0];
                Inventory_Change c = new Inventory_Change(id,value,columnName);
             }
           });
@@ -128,6 +128,11 @@ public class Inventory extends javax.swing.JPanel {
         });
 
         jButton_Delete.setText("Delete");
+        jButton_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_DeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -191,7 +196,19 @@ public class Inventory extends javax.swing.JPanel {
 			}
     	}
     }//GEN-LAST:event_jButton_Inventory_New_productActionPerformed
-
+    private void jButton_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Inventory_OkActionPerformed
+    	if (evt.getSource() == jButton_Delete )    		
+    	{
+    		if (id != null){   		
+    			 java.awt.EventQueue.invokeLater(new Runnable() {
+    				 
+    				 public void run() {
+    		                new DeletePop(id).setVisible(true);
+    		            }
+    		        });
+    		}
+    	}
+    }
     private void jButton_Inventory_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Inventory_OkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_Inventory_OkActionPerformed

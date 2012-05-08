@@ -6,31 +6,15 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Inventory_Delete {
-
-	Object[][] table = null;
-	Object ID = null;
-	Object Name = null;
-	Object Refnr = null;
-	Object Unit = null;
-	Object Quantity = null;
-	Object Amount = null;
-	Object Price = null;
-	Object Type = null;
 	
-	public Inventory_Delete(Object[][] x) {
+	Object ID = null;
+	
+	public Inventory_Delete(Object x) {
 
-		Object[][] table = x;
-		Object Name = table[0][0];
-		Object RefNr = table[0][1];
-		Object Price = table[0][2];
-		Object Type = table[0][3];
-		Object Unit = table[0][4];
-		Object Amount = table[0][5];
-		Object MinAmount = table[0][6];
-		if (table != null){
+		ID = x;
+		if (ID != null){
 			
-			String query = "INSERT INTO product (name, ref_nr, price, type, unit, amount, min_amount) VALUES('" + Name + "', '" + RefNr + "', '" + Price + "', '" + Type + "', '" + Unit + "', '" + Amount + "', '" + MinAmount + "')";
-
+			String query = "DELETE FROM product WHERE idVara = '"+ID+"'";
 			Statement stmt;
 
 		try {
@@ -45,14 +29,6 @@ public class Inventory_Delete {
 			System.err.print("SQLException: ");
 			System.err.println(ex.getMessage());
 		}
-			System.out.println(Name);
-			System.out.println(RefNr);
-			System.out.println(Price);
-			System.out.println(Type);
-			System.out.println(Unit);
-			System.out.println(Amount);
-			System.out.println(MinAmount);
-			
 		}
 	}
 }

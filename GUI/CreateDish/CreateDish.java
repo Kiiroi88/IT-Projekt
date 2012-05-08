@@ -4,7 +4,14 @@
  */
 package CreateDish;
 
+import gui.MainMenu;
+
+import java.util.ArrayList;
+
 import NameDish.NameDish;
+import Order.Order_gui;
+import Order.Search_Order;
+import Searches.Searcher;
 
 /**
  *
@@ -174,9 +181,37 @@ public class CreateDish extends javax.swing.JFrame {
 	    	
         }//GEN-LAST:event_jButton1ActionPerformed
     	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    		if (evt.getSource() == jButton_Search )
+    		{
 
+    			String searchWord = jTextField_Search.getText();
+    			Search_Order search_fun2 = new Search_Order();
+    			Searcher searcher2 = new Searcher();
+    			try {
+
+    				search_fun2.select();
+    			} catch (Exception e) {
+
+    				e.printStackTrace();
+    			}
+
+    			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
+    			Object [][] guiTable2 = null;
+    			try 
+    			{
+    				guiTable2 = search_fun2.combine(temp2);
+//    				CreateDish s = new CreateDich(guiTable2);
+    				MainMenu.Panel.invalidate();
+    				MainMenu.Panel.validate();
+    			} 
+    			catch (Exception e) 
+    			{ 
+    				e.printStackTrace();
+    			}
+    		}
+        }//GEN-LAST:event_jButton_AddActionPerformed
 	    	
-        }//GEN-LAST:event_jButton1ActionPerformed 
+
     /**
      * @param args the command line arguments
      */
