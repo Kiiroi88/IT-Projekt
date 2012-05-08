@@ -77,9 +77,9 @@ public class Inventory extends javax.swing.JPanel {
                System.out.println(columnName);
                table[row][column] = model.getValueAt(row, column);
                Object value = model.getValueAt(row, column);
-               id = table[row][0];
+               id = table[row][0];      
                Inventory_Change c = new Inventory_Change(id,value,columnName);
-            }
+               }
           });
         jTable_Inventory_Stock.setEditingColumn(0);
         jTable_Inventory_Stock.setEditingRow(0);
@@ -111,6 +111,7 @@ public class Inventory extends javax.swing.JPanel {
                TableModel model = (TableModel)e.getSource();
                String columnName = model.getColumnName(column);
                table_Add[row][column] = model.getValueAt(row, column);
+
             }
           });
         jTable_New_Product.setValueAt("",0,0);
