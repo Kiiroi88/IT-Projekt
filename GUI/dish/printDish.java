@@ -12,8 +12,8 @@ public class printDish {
 	public Object[][] PrintDish() {
 
 		Object[][] table = null;
-		String query = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
-		String query2 = "SELECT chichiu_Itp2.recipe_ingredient.idVara,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
+		String query = "SELECT chichiu_Itp2.product.name,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
+		String query2 = "SELECT chichiu_Itp2.product.name,chichiu_Itp2.recipe_index.dish,chichiu_Itp2.recipe_ingredient.required_amount,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.recipe_ingredient INNER JOIN chichiu_Itp2.product ON chichiu_Itp2.recipe_ingredient.idvara = chichiu_Itp2.product.idVara LEFT JOIN chichiu_Itp2.recipe_index ON chichiu_Itp2.recipe_ingredient.id = chichiu_Itp2.recipe_index.id";
 		Statement stmt;
 		Statement stmt2;
 
