@@ -56,7 +56,31 @@ public class Inventory extends javax.swing.JPanel {
             new String [] {
             		"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount","Min Amount"
             }
-        ));
+        ){
+            boolean[] canEdit = new boolean [] {
+                    false, true, true, true, true, true, true, true
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });;
+
+        jTable_Inventory_Stock.getModel().addTableModelListener(new TableModelListener() {
+
+            public void tableChanged(TableModelEvent e) {
+               System.out.println(e);
+               int row = e.getFirstRow();
+               int column = e.getColumn();
+               TableModel model = (TableModel)e.getSource();
+               Object columnName = model.getColumnName(column);
+               System.out.println(columnName);
+               table[row][column] = model.getValueAt(row, column);
+               Object value = model.getValueAt(row, column);
+               Object id = table[row][0];
+               Inventory_Change c = new Inventory_Change(id,value,columnName);
+            }
+          });
         jTable_Inventory_Stock.setEditingColumn(0);
         jTable_Inventory_Stock.setEditingRow(0);
         jTable_Inventory_Stock.setRowHeight(20);
