@@ -74,7 +74,6 @@ public class Delivery extends javax.swing.JPanel {
 				temp = deliveredTable[row][column];
 				String str = temp.toString(); 
 				d = Double.valueOf(str).doubleValue();
-				System.out.println(d);
 				deliveredTable[row][column] = d;
 
 
@@ -195,8 +194,6 @@ public class Delivery extends javax.swing.JPanel {
 					delivered.addAmount(addID, addAmount);
 					
 				}
-				System.out.println(addID);
-				System.out.println(addAmount);
 			}
 		}
 	}                                          
@@ -214,7 +211,6 @@ public class Delivery extends javax.swing.JPanel {
 	private javax.swing.JScrollPane jScrollPane5;
 	private javax.swing.JTable jTable_NewProduct;
 	private javax.swing.JTable jTable_DeliveryList;
-	double double1 = 5.00f;
 	private Object [][] deliveredTable =  {{12, "strawberry marmelade", 8, 10, "Dry", "Liter", 0.0},
 			                                {5, "toblerone", 7, 20, "Dry", "Kg", 0.0}};
 	private Object [][] newProductTable = null;
