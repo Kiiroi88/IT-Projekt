@@ -57,19 +57,22 @@ public class Delivery extends javax.swing.JPanel {
 				deliveredTable,
 				new String [] {
 						"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount", "Confirmed"
-				}
-				) {
-			Class[] types = new Class [] {
-					java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+				} ) {
+            Class[] types = new Class [] {
+                    java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                };
+                boolean[] canEdit = new boolean [] {
+                    false, false, false, false, false, false, true, true
+                };
 
-			};
+                public Class getColumnClass(int columnIndex) {
+                    return types [columnIndex];
+                }
 
-
-
-			public Class getColumnClass(int columnIndex) {
-				return types [columnIndex];
-			}
-		});
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
 		jTable_DeliveryList.getModel().addTableModelListener(new TableModelListener() {
 
 			public void tableChanged(TableModelEvent e) {
@@ -99,9 +102,23 @@ public class Delivery extends javax.swing.JPanel {
 		jTable_NewProduct.setModel(new javax.swing.table.DefaultTableModel(
 				newProductTable,
 				new String [] {
-						"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
-				}
-				));
+						"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount", "Confirmed"
+				}) {
+		            Class[] types = new Class [] {
+		                    java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+		                };
+		                boolean[] canEdit = new boolean [] {
+		                    false, false, false, false, false, false, true, true
+		                };
+
+		                public Class getColumnClass(int columnIndex) {
+		                    return types [columnIndex];
+		                }
+
+		                public boolean isCellEditable(int rowIndex, int columnIndex) {
+		                    return canEdit [columnIndex];
+		                }
+				});
 		jTable_NewProduct.setColumnSelectionAllowed(true);
 		jTable_NewProduct.setEditingColumn(0);
 		jTable_NewProduct.setEditingRow(0);
