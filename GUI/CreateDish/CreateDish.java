@@ -7,10 +7,13 @@ package CreateDish;
 import gui.MainMenu;
 
 import java.util.ArrayList;
+import java.awt.*;
 
 import NameDish.NameDish;
 import Order.Order_gui;
 import Order.Search_Order;
+import Searches.Search_Dish;
+import Searches.Search_Gui;
 import Searches.Searcher;
 
 /**
@@ -18,6 +21,8 @@ import Searches.Searcher;
  * @author DELL
  */
 public class CreateDish extends javax.swing.JFrame {
+
+	static Object[][] table = null;
 
     /**
      * Creates new form CreateDish
@@ -34,7 +39,7 @@ public class CreateDish extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -63,9 +68,7 @@ public class CreateDish extends javax.swing.JFrame {
 
         jTable_New_Product.setAutoCreateRowSorter(true);
         jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
+            table,
             new String [] {
                 "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
             }
@@ -180,12 +183,15 @@ public class CreateDish extends javax.swing.JFrame {
 
 	    	
         }//GEN-LAST:event_jButton1ActionPerformed
-    	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    	
+    	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+    		// Search button 
+
     		if (evt.getSource() == jButton_Search )
     		{
 
     			String searchWord = jTextField_Search.getText();
-    			Search_Order search_fun2 = new Search_Order();
+    			Search_Dish search_fun2 = new Search_Dish();
     			Searcher searcher2 = new Searcher();
     			try {
 
@@ -194,22 +200,30 @@ public class CreateDish extends javax.swing.JFrame {
 
     				e.printStackTrace();
     			}
+    			
+    			// Nedan Šr kod utšver fšrra search-koden
 
-    			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
+			ArrayList<String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
     			Object [][] guiTable2 = null;
     			try 
     			{
     				guiTable2 = search_fun2.combine(temp2);
-//    				CreateDish s = new CreateDich(guiTable2);
-    				MainMenu.Panel.invalidate();
-    				MainMenu.Panel.validate();
+    				table = guiTable2;
+    				Search_Gui searchGUI = new Search_Gui(guiTable2);
+//    				jTable_New_Product.removeAll();
+//    				jTable_New_Product.add(table);
+    				jTable_New_Product.setVisible(true);
+    				System.out.println(table[0][1]);
+    				searchGUI.setVisible(true);
+    				jTable_New_Product.invalidate();
+    				jTable_New_Product.validate();
     			} 
     			catch (Exception e) 
     			{ 
     				e.printStackTrace();
     			}
     		}
-        }//GEN-LAST:event_jButton_AddActionPerformed
+    		}
 	    	
 
     /**
