@@ -4,13 +4,20 @@
  */
 package Delivery;
 
+import gui.MainMenu;
+
 import java.awt.*;
 import java.sql.SQLException;
 import java.util.*;
+
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+
+import Order.Order_gui;
+import Order.Search_Order;
+import Searches.Searcher;
 
 /**
  *
@@ -21,9 +28,9 @@ public class Delivery extends javax.swing.JPanel {
 	/**
 	 * Creates new form Delivery
 	 */
-	public Delivery() {
+	public Delivery(Object[][] x) {
 
-		initComponents();
+		initComponents(x);
 	}
 
 	/**
@@ -33,18 +40,17 @@ public class Delivery extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
-	private void initComponents() {
+	private void initComponents(Object[][] x) {
 
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTable_DeliveryList = new javax.swing.JTable();
 		jScrollPane5 = new javax.swing.JScrollPane();
 		jTable_NewProduct = new javax.swing.JTable();
-		checkbox_marker_alla = new java.awt.Checkbox();
 		jButton_Ok = new javax.swing.JButton();
 		jButton_New_product = new javax.swing.JButton();
 		jLabel_Delivery = new javax.swing.JLabel();
-
-
+		jButtonSearch = new javax.swing.JButton();
+		jTextFieldSearch = new javax.swing.JTextField();
 
 		jTable_DeliveryList.setAutoCreateRowSorter(true);
 		jTable_DeliveryList.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,7 +93,8 @@ public class Delivery extends javax.swing.JPanel {
 		jTable_DeliveryList.setSelectionBackground(new java.awt.Color(235, 235, 235));
 		jScrollPane1.setViewportView(jTable_DeliveryList);
 		jTable_DeliveryList.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
+		newProductTable = x;
+		
 		jTable_NewProduct.setAutoCreateRowSorter(true);
 		jTable_NewProduct.setModel(new javax.swing.table.DefaultTableModel(
 				newProductTable,
@@ -102,15 +109,6 @@ public class Delivery extends javax.swing.JPanel {
 		jScrollPane5.setViewportView(jTable_NewProduct);
 		jTable_NewProduct.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-		checkbox_marker_alla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		checkbox_marker_alla.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-		checkbox_marker_alla.setLabel("Mark All");
-		checkbox_marker_alla.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentMoved(java.awt.event.ComponentEvent evt) {
-				checkbox_marker_allaComponentMoved(evt);
-			}
-		});
-
 		jButton_Ok.setText("Ok");
 		jButton_Ok.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,57 +121,64 @@ public class Delivery extends javax.swing.JPanel {
 			}
 		});
 
-		jButton_New_product.setText("New product");
+		jButtonSearch.setText("Search");
+		jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonSearchActionPerformed(evt);
+			}
+		});
+
+		jButton_New_product.setText("Ok");
 		jButton_New_product.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton_New_productActionPerformed(evt);
 			}
 		});
-
+		
 		jLabel_Delivery.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		jLabel_Delivery.setText("Delivery");
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout.setHorizontalGroup(
-				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-								.addComponent(jButton_New_product)
-								.addComponent(jButton_Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGroup(layout.createSequentialGroup()
-												.addComponent(jLabel_Delivery)
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(checkbox_marker_alla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-												.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				);
-		layout.setVerticalGroup(
-				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(checkbox_marker_alla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel_Delivery))
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jButton_Ok)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jButton_New_product)
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				);
-	}// </editor-fold>
+		 jButtonSearch.setText("Search");
 
-	private void checkbox_marker_allaComponentMoved(java.awt.event.ComponentEvent evt) {                                                    
-		// TODO add your handling code here:
-	} 
-
+	        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+	        this.setLayout(layout);
+	        layout.setHorizontalGroup(
+	            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	            .addGroup(layout.createSequentialGroup()
+	                .addContainerGap()
+	                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+	                    .addComponent(jButton_Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+	                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+	                    .addComponent(jLabel_Delivery, javax.swing.GroupLayout.Alignment.LEADING)
+	                    .addGroup(layout.createSequentialGroup()
+	                        .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+	                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+	                        .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+	                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	                        .addComponent(jButton_New_product, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+	                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
+	                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+	        );
+	        layout.setVerticalGroup(
+	            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+	                .addComponent(jLabel_Delivery)
+	                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+	                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+	                .addGap(5, 5, 5)
+	                .addComponent(jButton_Ok)
+	                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+	                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+	                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+	                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+	                    .addComponent(jButtonSearch)
+	                    .addComponent(jButton_New_product)
+	                    .addGroup(layout.createSequentialGroup()
+	                        .addGap(1, 1, 1)
+	                        .addComponent(jTextFieldSearch)))
+	                .addContainerGap())
+	        );
+	    }
 
 
 	private void jButton_OkActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                           
@@ -198,12 +203,44 @@ public class Delivery extends javax.swing.JPanel {
 		}
 	}                                          
 
+	private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+		if (evt.getSource() == jButtonSearch )
+		{
+
+			String searchWord = jTextFieldSearch.getText();
+			Search_Order search_fun2 = new Search_Order();
+			Searcher searcher2 = new Searcher();
+			try {
+
+				search_fun2.select();
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+
+			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
+			Object [][] guiTable2 = null;
+			try 
+			{
+				guiTable2 = search_fun2.combine(temp2);
+				Delivery s = new Delivery(guiTable2);
+				MainMenu.Panel.removeAll();
+				MainMenu.Panel.add(s);
+				MainMenu.Panel.setVisible(true);
+				s.setVisible(true);
+				MainMenu.Panel.invalidate();
+				MainMenu.Panel.validate();
+			} 
+			catch (Exception e) 
+			{ 
+				e.printStackTrace();
+			}
+		}
+    }                                                   
 	private void jButton_New_productActionPerformed(java.awt.event.ActionEvent evt) {                                                    
 		// TODO add your handling code here:
-	}                                                   
-
+	}          
 	// Variables declaration - do not modify
-	private java.awt.Checkbox checkbox_marker_alla;
 	private javax.swing.JButton jButton_New_product;
 	private javax.swing.JButton jButton_Ok;
 	private javax.swing.JLabel jLabel_Delivery;
@@ -218,5 +255,8 @@ public class Delivery extends javax.swing.JPanel {
 	public ArrayList<Object> addAmount = new ArrayList<Object>();
 	Object temp;
 	double d;
+    private javax.swing.JButton jButtonSearch;
+    private javax.swing.JTextField jTextFieldSearch;
+
 	// End of variables declaration
 }
