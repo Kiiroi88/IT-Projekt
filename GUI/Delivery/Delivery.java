@@ -45,7 +45,7 @@ public class Delivery extends javax.swing.JPanel {
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTable_DeliveryList = new javax.swing.JTable();
 		jScrollPane5 = new javax.swing.JScrollPane();
-		jTable_NewProduct = new javax.swing.JTable();
+		jTableSearch = new javax.swing.JTable();
 		jButton_Ok = new javax.swing.JButton();
 		jButton_New_product = new javax.swing.JButton();
 		jLabel_Delivery = new javax.swing.JLabel();
@@ -98,8 +98,8 @@ public class Delivery extends javax.swing.JPanel {
 		jTable_DeliveryList.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		newProductTable = x;
 		
-		jTable_NewProduct.setAutoCreateRowSorter(true);
-		jTable_NewProduct.setModel(new javax.swing.table.DefaultTableModel(
+		jTableSearch.setAutoCreateRowSorter(true);
+		jTableSearch.setModel(new javax.swing.table.DefaultTableModel(
 				newProductTable,
 				new String [] {
 						"ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount", "Confirmed"
@@ -119,12 +119,27 @@ public class Delivery extends javax.swing.JPanel {
 		                    return canEdit [columnIndex];
 		                }
 				});
-		jTable_NewProduct.setColumnSelectionAllowed(true);
-		jTable_NewProduct.setEditingColumn(0);
-		jTable_NewProduct.setEditingRow(0);
-		jTable_NewProduct.setRowHeight(20);
-		jScrollPane5.setViewportView(jTable_NewProduct);
-		jTable_NewProduct.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		jTableSearch.getModel().addTableModelListener(new TableModelListener() {
+
+			public void tableChanged(TableModelEvent e) {
+				int row = e.getFirstRow();
+				int column = e.getColumn();
+				TableModel model = (TableModel)e.getSource();
+				newProductTable[row][column] = model.getValueAt(row, column);
+				temp = newProductTable[row][column];
+				String str = temp.toString(); 
+				d = Double.valueOf(str).doubleValue();
+				newProductTable[row][column] = d;
+
+
+			}
+		});
+		jTableSearch.setColumnSelectionAllowed(true);
+		jTableSearch.setEditingColumn(0);
+		jTableSearch.setEditingRow(0);
+		jTableSearch.setRowHeight(20);
+		jScrollPane5.setViewportView(jTableSearch);
+		jTableSearch.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
 		jButton_Ok.setText("Ok");
 		jButton_Ok.addActionListener(new java.awt.event.ActionListener() {
@@ -255,15 +270,32 @@ public class Delivery extends javax.swing.JPanel {
 		}
     }                                                   
 	private void jButton_New_productActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-		// TODO add your handling code here:
-	}          
+//		if(evt.getSource() == jButton_New_product)
+//		{
+//			addID.clear();
+//			addAmount.clear();
+//			{	
+//				for(int i = 0; i< deliveredTable.length; i++)
+//				{	
+//					
+//					Object id = deliveredTable[i][0];
+//					addID.add(id);
+//					double amount = (Double) deliveredTable[i][6];
+//					addAmount.add(amount);
+//					Delivered delivered = new Delivered();
+//					delivered.addAmount(addID, addAmount);
+//					
+//				}
+//			}
+//		}
+	}                          
 	// Variables declaration - do not modify
 	private javax.swing.JButton jButton_New_product;
 	private javax.swing.JButton jButton_Ok;
 	private javax.swing.JLabel jLabel_Delivery;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JScrollPane jScrollPane5;
-	private javax.swing.JTable jTable_NewProduct;
+	private javax.swing.JTable jTableSearch;
 	private javax.swing.JTable jTable_DeliveryList;
 	private Object [][] deliveredTable =  {{12, "strawberry marmelade", 8, 10, "Dry", "Liter", 0.0},
 			                                {5, "toblerone", 7, 20, "Dry", "Kg", 0.0}};
