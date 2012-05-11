@@ -9,7 +9,7 @@ public class Search_Fun
 {
 	
 	ArrayList idList = new ArrayList();
-	public ArrayList <String> groceryList = new ArrayList<String>();
+	public ArrayList<String> groceryList = new ArrayList<String>();
 	ArrayList refList = new ArrayList();
 	ArrayList priceList = new ArrayList();
 	ArrayList typeList = new ArrayList();
@@ -26,7 +26,7 @@ public class Search_Fun
 
 	// Method for retreival of information in table stored 
 	// in the database (MySQL)
-	public ArrayList select () throws Exception
+	public ArrayList<String> select () throws Exception
 	{
 
 		searchQuery = "SELECT name FROM product"; // SQL command to retrieve all the groceries, set into query variable 
