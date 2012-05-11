@@ -38,7 +38,7 @@ public class Inventory_Change {
 		if (column.equals("Min Amount")){
 			column = "min_amount";			
 		}
-			
+		
 		if (ID != null){
 			
 			String query = "UPDATE product SET "+column+" = '"+value+"' WHERE idVara = '"+ ID+"'";

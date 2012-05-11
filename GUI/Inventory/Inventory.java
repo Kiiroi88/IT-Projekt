@@ -171,6 +171,8 @@ public class Inventory extends javax.swing.JPanel {
     		
     		Object[][] guiTable2 = null;
     		guiTable2 = table_Add;
+    		table_Add = new Object [][] {
+    	            {null, null,null , null, null, null, null}};
     		try {
     			
 			Inventory_Add A = new Inventory_Add(guiTable2);

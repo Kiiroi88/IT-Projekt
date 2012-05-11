@@ -4,6 +4,8 @@
  */
 package Inventory;
 
+import gui.MainMenu;
+
 /**
  *
  * @author Andreas Roth
@@ -72,7 +74,14 @@ public class DeletePop extends javax.swing.JFrame {
     	if (evt.getSource() == jButtonYes ) {
     		
     		Inventory_Delete D = new Inventory_Delete(input);
-    		
+    		Inventory s = new Inventory();
+			MainMenu.Panel.removeAll();
+			MainMenu.Panel.add(s);
+			MainMenu.Panel.setVisible(true);
+			s.setVisible(true);
+			MainMenu.Panel.invalidate();
+			MainMenu.Panel.validate();
+			dispose();
     	}
  }
     
