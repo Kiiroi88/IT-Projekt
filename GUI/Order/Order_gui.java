@@ -7,6 +7,7 @@ package Order;
 import gui.MainMenu;
 
 import java.awt.Panel;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.event.TableModelEvent;
@@ -24,8 +25,9 @@ import Searches.Searcher;
 public class Order_gui extends javax.swing.JPanel {
 
 	Object[][] table = null;
-
 	Object[][] table_Search = null;
+	Object idVara = null;
+	Object amount = null;
 
 	int rowCount = 0;
 	int columnCount = 0;
@@ -119,7 +121,6 @@ public class Order_gui extends javax.swing.JPanel {
 				new TableModelListener() {
 
 					public void tableChanged(TableModelEvent e) {
-						System.out.println(e);
 						int row = e.getFirstRow();
 						int column = e.getColumn();
 						TableModel model = (TableModel) e.getSource();
@@ -283,8 +284,27 @@ public class Order_gui extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void jButton_OkActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton_OkActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton_OkActionPerformed
+
+		if (evt.getSource() == jButton_Ok) {
+			if (table_Search[0][0] != null) {
+				for (int i = 0; i < table_Search.length; i++) {
+
+					idVara = table_Search[i][0];
+					amount = table_Search[i][6];
+					try {
+						Order_Send OS = new Order_Send(idVara, amount);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				} 
+			} else {
+				System.out.println("fail!");
+			}
+		}
+
+	}// GEN-LAST:event_jButton_OkActionPe
 
 	private void jButton_AddActionPerformed(java.awt.event.ActionEvent evt) {
 

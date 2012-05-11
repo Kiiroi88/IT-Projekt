@@ -37,7 +37,7 @@ public class printOrder {
 
 			int y = 0;
 			int numberOfColumns = rsmd.getColumnCount();
-			table = new Object[rc][numberOfColumns];
+			table = new Object[1000][numberOfColumns];
 
 			while (rs.next()) {
 
