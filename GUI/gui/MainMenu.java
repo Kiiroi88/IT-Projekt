@@ -259,7 +259,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 		
 		try {
 			Panel.removeAll();
-			Delivery d = new Delivery();
+			Delivery d = new Delivery(null);
 			Panel.add(d);
 			Panel.setVisible(true);
 			d.setVisible(true);
