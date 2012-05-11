@@ -7,13 +7,9 @@ package CreateDish;
 import gui.MainMenu;
 
 import java.util.ArrayList;
-import java.awt.*;
 
-import NameDish.NameDish;
-import Order.Order_gui;
-import Order.Search_Order;
+import Delivery.Delivery;
 import Searches.Search_Fun;
-import Searches.Search_Gui;
 import Searches.Searcher;
 
 /**
@@ -21,9 +17,7 @@ import Searches.Searcher;
  * @author DELL
  */
 public class CreateDish extends javax.swing.JFrame {
-
-	static Object[][] table = null;
-
+	Object [][] tableSearch;
     /**
      * Creates new form CreateDish
      */
@@ -39,158 +33,142 @@ public class CreateDish extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    	
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable_New_Product = new javax.swing.JTable();
-        jButton_Delete = new javax.swing.JButton();
-        jButton_Done = new javax.swing.JButton();
-        jButton_Add = new javax.swing.JButton();
-        jTextField_Search = new javax.swing.JTextField();
-        jButton_Search = new javax.swing.JButton();
-        jLabel_CreateDish = new javax.swing.JLabel();
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(255, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabelCreateDish = new javax.swing.JLabel();
+        jPanelDish = new javax.swing.JPanel();
+        jPanelProduct = new javax.swing.JPanel();
+        jButtonDone = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
+        jTextFieldSearch = new javax.swing.JTextField();
+        jButtonSearch = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
+        PanelDish = new javax.swing.JPanel();
+        PanelProduct = new javax.swing.JPanel();
+        
+        NewProductDish product = new NewProductDish(null);
+        NewDish dish = new NewDish();
+        PanelDish = dish;
+        PanelProduct = product;
+        
+        jLabelCreateDish.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelCreateDish.setText("Create Dish");
 
-            },
-            new String [] {
-                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
-            }
-        ));
-        jTable1.setEditingColumn(0);
-        jTable1.setEditingRow(0);
-        jTable1.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable1);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelDish);
+        jPanelDish.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(PanelDish)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 146, Short.MAX_VALUE)
+            .addComponent(PanelDish)
+        );
 
-        jTable_New_Product.setAutoCreateRowSorter(true);
-        jTable_New_Product.setModel(new javax.swing.table.DefaultTableModel(
-            table,
-            new String [] {
-                "ID", "Name", "Ref Nr", "Price", "Type", "Unit", "Amount"
-            }
-        ));
-        jTable_New_Product.setEditingColumn(0);
-        jTable_New_Product.setEditingRow(0);
-        jTable_New_Product.setRowHeight(20);
-        jScrollPane3.setViewportView(jTable_New_Product);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanelProduct);
+        jPanelProduct.setLayout(jPanel2Layout);
+        jPanel2Layout
+        .setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(PanelProduct)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+            .addComponent(PanelProduct)
+        );
 
-        jButton_Delete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton_Delete.setText("Delete");
-        jButton_Delete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDone.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDone.setText("Done");
+
+        jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_DeleteActionPerformed(evt);
+                jButtonDeleteActionPerformed(evt);
             }
         });
 
-        jButton_Done.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton_Done.setText("Done");
-        jButton_Done.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSearch.setText("Search");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_DoneActionPerformed(evt);
+            	jButtonSearchActionPerformed(evt);
             }
         });
-
-
-        jButton_Add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton_Add.setText("Add to dish");
-        jButton_Add.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAdd.setText("Add to dish");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_AddActionPerformed(evt);
+            	jButtonAddActionPerformed(evt);
             }
         });
-        jButton_Search.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton_Search.setText("Search");
-        jButton_Search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jButton_SearchActionPerformed(evt);
-            }
-        });
-        jLabel_CreateDish.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel_CreateDish.setText("Create Dish");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jButton_Delete)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton_Done))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton_Search)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton_Add))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addComponent(jLabel_CreateDish))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelCreateDish)
+                        .addGap(0, 452, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonDone, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAdd)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_CreateDish)
+                .addComponent(jLabelCreateDish)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelDish, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Delete)
-                    .addComponent(jButton_Done))
+                    .addComponent(jButtonDone)
+                    .addComponent(jButtonDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Search)
-                    .addComponent(jButton_Add))
-                .addContainerGap())
+                    .addComponent(jTextFieldSearch)
+                    .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAdd)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
 
-    	    	
-    }//GEN-LAST:event_jButton1ActionPerformed
+   }//GEN-LAST:event_jButtonDeleteActionPerformed                                     
 
-    private void jButton_DoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    	java.awt.EventQueue.invokeLater(new Runnable() {
-
-			public void run() {
-				new NameDish().setVisible(true);
-
-			}
-		});
+    private void jButtonDoneActionPerformed(java.awt.event.ActionEvent evt) {                                         
     	
     	
-    }//GEN-LAST:event_jButton1ActionPerformed
-    	private void jButton_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-	    	
-        }//GEN-LAST:event_jButton1ActionPerformed
+    }        
+private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {                                         
     	
-    	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
-    		// Search button 
-
-    		if (evt.getSource() == jButton_Search )
+    	
+    }   
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    		if (evt.getSource() == jButtonSearch )
     		{
 
-    			String searchWord = jTextField_Search.getText();
+    			String searchWord = jTextFieldSearch.getText();
     			Search_Fun search_fun2 = new Search_Fun();
     			Searcher searcher2 = new Searcher();
     			try {
@@ -200,30 +178,26 @@ public class CreateDish extends javax.swing.JFrame {
 
     				e.printStackTrace();
     			}
-    			
-    			// Nedan Šr kod utšver fšrra search-koden
 
-			ArrayList<String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
+    			ArrayList <String> temp2 = searcher2.searchThrough(search_fun2.groceryList, searchWord);
     			Object [][] guiTable2 = null;
     			try 
     			{
     				guiTable2 = search_fun2.combine(temp2);
-    				table = guiTable2;
-    				Search_Gui searchGUI = new Search_Gui(guiTable2);
-//    				jTable_New_Product.removeAll();
-//    				jTable_New_Product.add(table);
-    				jTable_New_Product.setVisible(true);
-    				System.out.println(table[0][1]);
-    				searchGUI.setVisible(true);
-    				jTable_New_Product.invalidate();
-    				jTable_New_Product.validate();
+    				NewProductDish s = new NewProductDish(guiTable2);
+    				PanelProduct.removeAll();
+    				PanelProduct.add(s);
+    				PanelProduct.setVisible(true);
+    				s.setVisible(true);
+    				PanelProduct.invalidate();
+    				PanelProduct.validate();
     			} 
     			catch (Exception e) 
     			{ 
     				e.printStackTrace();
     			}
     		}
-    		}
+        }                                           
 	    	
 
     /**
@@ -268,15 +242,15 @@ public class CreateDish extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Delete;
-    private javax.swing.JButton jButton_Done;
-    private javax.swing.JButton jButton_Add;
-    private javax.swing.JButton jButton_Search;
-    private javax.swing.JLabel jLabel_CreateDish;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable_New_Product;
-    private javax.swing.JTextField jTextField_Search;
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonDone;
+    private javax.swing.JButton jButtonSearch;
+    private javax.swing.JLabel jLabelCreateDish;
+    private javax.swing.JPanel jPanelDish;
+    private javax.swing.JPanel jPanelProduct;
+    private javax.swing.JTextField jTextFieldSearch;
+    public static javax.swing.JPanel PanelDish;
+    public static javax.swing.JPanel PanelProduct;
     // End of variables declaration//GEN-END:variables
 }
