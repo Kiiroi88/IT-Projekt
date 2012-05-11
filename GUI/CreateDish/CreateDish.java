@@ -12,7 +12,7 @@ import java.awt.*;
 import NameDish.NameDish;
 import Order.Order_gui;
 import Order.Search_Order;
-import Searches.Search_Dish;
+import Searches.Search_Fun;
 import Searches.Search_Gui;
 import Searches.Searcher;
 
@@ -191,7 +191,7 @@ public class CreateDish extends javax.swing.JFrame {
     		{
 
     			String searchWord = jTextField_Search.getText();
-    			Search_Dish search_fun2 = new Search_Dish();
+    			Search_Fun search_fun2 = new Search_Fun();
     			Searcher searcher2 = new Searcher();
     			try {
 
