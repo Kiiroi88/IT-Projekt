@@ -128,8 +128,8 @@ public class Delivery extends javax.swing.JPanel {
 				newProductTable[row][column] = model.getValueAt(row, column);
 				temp = newProductTable[row][column];
 				String str = temp.toString(); 
-				d = Double.valueOf(str).doubleValue();
-				newProductTable[row][column] = d;
+				dNew = Double.valueOf(str).doubleValue();
+				newProductTable[row][column] = dNew;
 
 
 			}
@@ -163,7 +163,12 @@ public class Delivery extends javax.swing.JPanel {
 		jButton_New_product.setText("Ok");
 		jButton_New_product.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton_New_productActionPerformed(evt);
+				try {
+					jButton_New_productActionPerformed(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -255,6 +260,11 @@ public class Delivery extends javax.swing.JPanel {
 			try 
 			{
 				guiTable2 = search_fun2.combine(temp2);
+				for (int i = 0; i < temp2.size(); i++)
+				{
+					double setToZero = 0.0;
+					guiTable2[i][6] = setToZero;
+				}
 				Delivery s = new Delivery(guiTable2);
 				MainMenu.Panel.removeAll();
 				MainMenu.Panel.add(s);
@@ -269,25 +279,25 @@ public class Delivery extends javax.swing.JPanel {
 			}
 		}
     }                                                   
-	private void jButton_New_productActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-//		if(evt.getSource() == jButton_New_product)
-//		{
-//			addID.clear();
-//			addAmount.clear();
-//			{	
-//				for(int i = 0; i< deliveredTable.length; i++)
-//				{	
-//					
-//					Object id = deliveredTable[i][0];
-//					addID.add(id);
-//					double amount = (Double) deliveredTable[i][6];
-//					addAmount.add(amount);
-//					Delivered delivered = new Delivered();
-//					delivered.addAmount(addID, addAmount);
-//					
-//				}
-//			}
-//		}
+	private void jButton_New_productActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                                    
+		if(evt.getSource() == jButton_New_product)
+		{
+			addIDNew.clear();
+			addAmountNew.clear();
+			{	
+				for(int i = 0; i< newProductTable.length; i++)
+				{	
+					
+					Object id = newProductTable[i][0];
+					addIDNew.add(id);
+					double amountNew = (Double) newProductTable[i][6];
+					addAmountNew.add(amountNew);
+					Delivered deliveredNew = new Delivered();
+					deliveredNew.addAmount(addIDNew, addAmountNew);
+					
+				}
+			}
+		}
 	}                          
 	// Variables declaration - do not modify
 	private javax.swing.JButton jButton_New_product;
@@ -302,8 +312,11 @@ public class Delivery extends javax.swing.JPanel {
 	private Object [][] newProductTable = null;
 	public ArrayList<Object> addID = new ArrayList<Object>();
 	public ArrayList<Object> addAmount = new ArrayList<Object>();
+	public ArrayList<Object> addIDNew = new ArrayList<Object>();
+	public ArrayList<Object> addAmountNew = new ArrayList<Object>();
 	Object temp;
 	double d;
+	double dNew;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JTextField jTextFieldSearch;
 
