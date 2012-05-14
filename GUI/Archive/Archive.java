@@ -4,6 +4,21 @@
  */
 package Archive;
 
+import gui.MainMenu;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
+
+import Order.Search_Order;
+import Searches.Searcher;
+import dish.DeleteDishPop;
 import dish.printDish;
 
 /**
@@ -32,8 +47,8 @@ public class Archive extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jSearchField = new javax.swing.JTextField();
+        jButtonSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
 		printArchive pa = new printArchive();
@@ -46,8 +61,14 @@ public class Archive extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setText("Search");
+        jButtonSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSearch.setText("Search Order ID");
+		jButtonSearch
+		.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButtonSearchActionPerformed(evt);
+			}
+		});
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Archive");
@@ -60,9 +81,9 @@ public class Archive extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(251, 251, 251)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
+                        .addComponent(jButtonSearch))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -80,16 +101,48 @@ public class Archive extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(jSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSearch))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {
+
+    	if (evt.getSource() == jButtonSearch) {
+
+			String searchWord = jSearchField.getText();
+			String query = "SELECT chichiu_Itp2.order_product.idarkiv,chichiu_Itp2.product.idvara,chichiu_Itp2.order_product.amount,chichiu_Itp2.product.name,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.order_product JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.order_product.idvara where idarkiv =" + searchWord + "";
+			Statement stmt;
+			
+			try {
+
+				stmt = MainMenu.con.createStatement();
+				
+				ResultSet rs = stmt.executeQuery(query);
+
+				System.out.println("");
+
+				while(rs.next()){
+					System.out.println(rs.getObject(1));
+				}
+
+				stmt.close();
+
+			} catch (SQLException ex) {
+				System.err.print("SQLException: ");
+				System.err.println(ex.getMessage());
+			}
+		
+    	}
+	}
+	
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jSearchField;
     // End of variables declaration//GEN-END:variables
 }
