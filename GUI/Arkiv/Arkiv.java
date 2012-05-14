@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Archive;
+package Arkiv;
 
 import dish.printDish;
 
@@ -10,14 +10,14 @@ import dish.printDish;
  *
  * @author DELL
  */
-public class Archive extends javax.swing.JPanel {
+public class Arkiv extends javax.swing.JPanel {
 
 	Object[][] table = null;
 	
     /**
      * Creates new form Arkiv
      */
-    public Archive() {
+    public Arkiv() {
         initComponents();
     }
 
@@ -41,7 +41,7 @@ public class Archive extends javax.swing.JPanel {
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(table,
             new String [] {
-                "Order ID", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
+                "Date", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
