@@ -79,11 +79,11 @@ public class Delivery extends javax.swing.JPanel {
 				int row = e.getFirstRow();
 				int column = e.getColumn();
 				TableModel model = (TableModel)e.getSource();
-				deliveredTable[row][column] = model.getValueAt(row, column);
+				if (column != 7){deliveredTable[row][column] = model.getValueAt(row, column);
 				temp = deliveredTable[row][column];
 				String str = temp.toString(); 
 				d = Double.valueOf(str).doubleValue();
-				deliveredTable[row][column] = d;
+				deliveredTable[row][column] = d; }
 
 
 			}
@@ -128,8 +128,8 @@ public class Delivery extends javax.swing.JPanel {
 				newProductTable[row][column] = model.getValueAt(row, column);
 				temp = newProductTable[row][column];
 				String str = temp.toString(); 
-				dNew = Double.valueOf(str).doubleValue();
-				newProductTable[row][column] = dNew;
+				if (column != 7){ dNew = Double.valueOf(str).doubleValue();
+				newProductTable[row][column] = dNew;}
 
 
 			}

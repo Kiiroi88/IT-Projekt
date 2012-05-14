@@ -5,10 +5,10 @@ import java.sql.*;
 
 import dish.Dish;
 
+import Arkiv.Arkiv;
 import Connect.Connect;
 import Delivery.Delivery;
 import GUI_COUNTER.Counter;
-import GUI_LOG_IN.GUI_LOG_IN;
 import Inventory.Inventory;
 import Order.Order_gui;
 import Searches.Search_Fun;
@@ -286,17 +286,19 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 	}
 
 	private void jButton_ArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
-		java.awt.EventQueue.invokeLater(new Runnable() {
 
-			public void run() {
-				new GUI_LOG_IN().setVisible(true);
-
-			}
-
-		});	
-
-		
-	}//GEN-LAST:event_jButton_LoginActionPerformed
+		try {
+			Panel.removeAll();
+			Arkiv A = new Arkiv();
+			Panel.add(A);
+			Panel.setVisible(true);
+			A.setVisible(true);
+			this.invalidate();
+			this.validate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
 		// Search button 

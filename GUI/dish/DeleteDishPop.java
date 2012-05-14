@@ -1,6 +1,10 @@
 package dish;
 
+import gui.MainMenu;
+
 import java.sql.SQLException;
+
+import Inventory.Inventory;
 
 public class DeleteDishPop extends javax.swing.JFrame {
 	static Object input;
@@ -84,6 +88,14 @@ public class DeleteDishPop extends javax.swing.JFrame {
 		if (evt.getSource() == jButtonYes) {
 
 			DishDelete D = new DishDelete(input);
+			Dish s = new Dish();
+			MainMenu.Panel.removeAll();
+			MainMenu.Panel.add(s);
+			MainMenu.Panel.setVisible(true);
+			s.setVisible(true);
+			MainMenu.Panel.invalidate();
+			MainMenu.Panel.validate();
+			dispose();
 		}
 	}
 
