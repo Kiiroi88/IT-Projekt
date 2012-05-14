@@ -12,12 +12,15 @@ import Delivery.Delivery;
 import Searches.Search_Fun;
 import Searches.Searcher;
 
+
 /**
  *
  * @author DELL
  */
 public class CreateDish extends javax.swing.JFrame {
+	
 	Object [][] tableSearch;
+    
     /**
      * Creates new form CreateDish
      */
@@ -47,8 +50,8 @@ public class CreateDish extends javax.swing.JFrame {
         
         NewProductDish product = new NewProductDish(null);
         NewDish dish = new NewDish();
-        PanelDish = dish;
-        PanelProduct = product;
+        PanelDish.add(dish);
+        PanelProduct.add(product);
         
         jLabelCreateDish.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelCreateDish.setText("Create Dish");
@@ -189,8 +192,9 @@ private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {
     				PanelProduct.add(s);
     				PanelProduct.setVisible(true);
     				s.setVisible(true);
-    				PanelProduct.invalidate();
-    				PanelProduct.validate();
+    				this.invalidate();
+    				this.validate();
+    				this.repaint();
     			} 
     			catch (Exception e) 
     			{ 
