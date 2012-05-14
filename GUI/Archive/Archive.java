@@ -4,12 +4,16 @@
  */
 package Archive;
 
+import dish.printDish;
+
 /**
  *
  * @author DELL
  */
 public class Archive extends javax.swing.JPanel {
 
+	Object[][] table = null;
+	
     /**
      * Creates new form Arkiv
      */
@@ -32,13 +36,10 @@ public class Archive extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
+		printArchive pa = new printArchive();
+		table = pa.PrintArchive();
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(table,
             new String [] {
                 "Order ID", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
             }
