@@ -2,18 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Arkiv;
+package Archive;
 
 /**
  *
  * @author DELL
  */
-public class Arkiv extends javax.swing.JPanel {
+public class Archive extends javax.swing.JPanel {
 
     /**
      * Creates new form Arkiv
      */
-    public Arkiv() {
+    public Archive() {
         initComponents();
     }
 
@@ -40,7 +40,7 @@ public class Arkiv extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Date", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
+                "Order ID", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

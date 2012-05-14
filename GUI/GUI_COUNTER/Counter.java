@@ -93,7 +93,7 @@ public class Counter extends javax.swing.JFrame {
         
         jLabel_Kassa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel_Kassa.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Kassa.setText("Counter");
+        jLabel_Kassa.setText("Kassa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
