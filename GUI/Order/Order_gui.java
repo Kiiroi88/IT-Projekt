@@ -152,7 +152,7 @@ public class Order_gui extends javax.swing.JPanel {
 				new String[] { "ID", "Name", "Ref Nr", "Price", "Type", "Unit",
 						"Amount" }) {
 			boolean[] canEdit = new boolean[] { false, false, false, false,
-					false, false, false };
+					false, false, true };
 
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
 				return canEdit[columnIndex];
