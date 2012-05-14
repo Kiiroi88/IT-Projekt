@@ -5,7 +5,7 @@ import java.sql.*;
 
 import dish.Dish;
 
-import Arkiv.Arkiv;
+import Archive.Archive;
 import Connect.Connect;
 import Delivery.Delivery;
 import GUI_COUNTER.Counter;
@@ -251,6 +251,7 @@ public class MainMenu extends javax.swing.JFrame {
 			d.setVisible(true);
 			this.invalidate();
 			this.validate();
+			this.repaint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -265,6 +266,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 			d.setVisible(true);
 			this.invalidate();
 			this.validate();
+			this.repaint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -289,7 +291,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 
 		try {
 			Panel.removeAll();
-			Arkiv A = new Arkiv();
+			Archive A = new Archive();
 			Panel.add(A);
 			Panel.setVisible(true);
 			A.setVisible(true);
@@ -347,6 +349,7 @@ private void jButton_DeliveryActionPerformed(java.awt.event.ActionEvent evt) {
 			s.setVisible(true);
 			this.invalidate();
 			this.validate();
+			this.repaint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
