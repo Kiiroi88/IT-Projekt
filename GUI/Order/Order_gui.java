@@ -6,7 +6,8 @@ package Order;
 
 import gui.MainMenu;
 
-import java.awt.Panel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
+import Inventory.Inventory;
 import Searches.Search_Fun;
 import Searches.Search_Gui;
 import Searches.Searcher;
@@ -25,10 +27,12 @@ import Searches.Searcher;
 public class Order_gui extends javax.swing.JPanel {
 
 	Object[][] table = null;
+//	Object[][] table2 = null;
 	Object[][] table_Search = null;
 	Object idVara = null;
 	Object amount = null;
 
+	int rowparam;
 	int rowCount = 0;
 	int columnCount = 0;
 	Object id = 0;
@@ -71,7 +75,7 @@ public class Order_gui extends javax.swing.JPanel {
 		table_Search = x;
 
 		while (id != null) {
-			id = table[rowCount][columnCount];
+			id = table[rowCount][0];
 			rowCount++;
 
 		}
@@ -165,10 +169,34 @@ public class Order_gui extends javax.swing.JPanel {
 		jTable_Order.getColumnModel().getColumn(5).setResizable(false);
 		jTable_Order.getColumnModel().getColumn(6).setResizable(false);
 
+		jTable_Order.getModel().addTableModelListener(new TableModelListener() {
+
+			public void tableChanged(TableModelEvent e) {
+				int row = e.getFirstRow();
+				rowparam = row;
+				int column = e.getColumn();
+				TableModel model = (TableModel) e.getSource();
+				String columnName = model.getColumnName(column);
+
+				// while (j < 8) {
+				//
+				// table[rowCount][j] = model.getValueAt(row, j);
+				// j++;
+				// }
+
+				;
+			}
+		});
+
 		jLabel_Order_Products.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		jLabel_Order_Products.setText("Order Products");
 
 		jButton_Delete.setText("Delete");
+		jButton_Delete.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButton_DeleteActionPerformed(evt);
+			}
+		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
@@ -283,7 +311,54 @@ public class Order_gui extends javax.swing.JPanel {
 										Short.MAX_VALUE)));
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void jButton_OkActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton_OkActionPerformed
+	private void jButton_DeleteActionPerformed(ActionEvent evt) {
+		if (evt.getSource() == jButton_Delete) {
+			Object[][] table2 = new Object[1000][8];
+			
+			if (table[0][0] != null) {
+				
+				for (int i = 0; i < table.length; i++) {
+					for (int j = 0; j < 8; j++) {
+						if (i != rowparam) {
+							table2[i][j] = table[i][j];
+						}
+					}
+				}
+				table = table2;
+				
+				jTable_Order.setModel(new javax.swing.table.DefaultTableModel(table,
+						new String[] { "ID", "Name", "Ref Nr", "Price", "Type", "Unit",
+								"Amount" }) {
+					boolean[] canEdit = new boolean[] { false, false, false, false,
+							false, false, true };
+
+					public boolean isCellEditable(int rowIndex, int columnIndex) {
+						return canEdit[columnIndex];
+					}
+				});
+				
+//				Order_gui Og;
+//				try {
+//					Og = new Order_gui(table);
+//					MainMenu.Panel.removeAll();
+//					MainMenu.Panel.add(Og);
+//					MainMenu.Panel.setVisible(true);
+//					Og.setVisible(true);
+//					MainMenu.Panel.invalidate();
+//					MainMenu.Panel.validate();
+//				} catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+				
+			} else {
+				System.out.println("fail!");
+			}
+		}
+
+	}
+
+	private void jButton_OkActionPerformed(ActionEvent evt) {// GEN-FIRST:event_jButton_OkActionPerformed
 
 		if (evt.getSource() == jButton_Ok) {
 			if (table_Search[0][0] != null) {
@@ -298,7 +373,7 @@ public class Order_gui extends javax.swing.JPanel {
 						e.printStackTrace();
 					}
 
-				} 
+				}
 			} else {
 				System.out.println("fail!");
 			}
@@ -309,7 +384,7 @@ public class Order_gui extends javax.swing.JPanel {
 	private void jButton_AddActionPerformed(java.awt.event.ActionEvent evt) {
 
 		rowCount++;
-		j=0;
+		j = 0;
 		jTable_Order.setModel(new javax.swing.table.DefaultTableModel(table,
 				new String[] { "ID", "Name", "Ref Nr", "Price", "Type", "Unit",
 						"Amount" }) {
