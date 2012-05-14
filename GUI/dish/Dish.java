@@ -54,7 +54,23 @@ public class Dish extends javax.swing.JPanel {
 		jTable_Stock.setAutoCreateRowSorter(true);
 		jTable_Stock.setModel(new javax.swing.table.DefaultTableModel(table,
 				new String[] { "Product", "Dish", "Required Amount", "Ref No",
-						"Type", "Unit" }));
+						"Type", "Unit", "Select" }) 
+		{Class[] types = new Class[] { java.lang.Object.class,
+								java.lang.Object.class, java.lang.Object.class,
+								java.lang.Object.class, java.lang.Object.class,
+								java.lang.Object.class, java.lang.Object.class,
+								java.lang.Boolean.class };
+						boolean[] canEdit = new boolean[] { false, false, false, false,
+								false, false, true };
+
+						public Class getColumnClass(int columnIndex) {
+							return types[columnIndex];
+						}
+
+						public boolean isCellEditable(int rowIndex, int columnIndex) {
+							return canEdit[columnIndex];
+						}
+		});
 
 		jTable_Stock.getModel().addTableModelListener(
 				new TableModelListener() {
