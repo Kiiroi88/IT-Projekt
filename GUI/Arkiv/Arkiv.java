@@ -40,7 +40,7 @@ public class Arkiv extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Date", "ID Vara", "Amount", "Name", "Ref nr", "Type", "Unit"
+                "Date", "Product ID", "Amount", "Name", "Ref nr", "Type", "Unit"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -49,7 +49,7 @@ public class Arkiv extends javax.swing.JPanel {
         jButton4.setText("Search");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Arkive");
+        jLabel1.setText("Archive");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
