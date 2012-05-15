@@ -231,9 +231,9 @@ public class Delivery extends javax.swing.JPanel {
 				for(int i = 0; i< deliveredTable.length; i++)
 				{	
 					
-					Object id = deliveredTable[i][0];
+					Object id = deliveredTable[i][1];
 					addID.add(id);
-					double amount = (Double) deliveredTable[i][6];
+					double amount = (Double) deliveredTable[i][2];
 					addAmount.add(amount);
 					Delivered delivered = new Delivered();
 					delivered.addAmount(addID, addAmount);
