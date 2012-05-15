@@ -25,7 +25,7 @@ public class printArchive {
 			ResultSet rs = stmt.executeQuery(query);
 			ResultSetMetaData rsmd = rs.getMetaData();
 
-			System.out.println("");
+			//System.out.println("");
 
 			ResultSet rowcount = stmt2.executeQuery(query2);
 			int rc = 0;

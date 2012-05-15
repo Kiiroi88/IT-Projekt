@@ -170,7 +170,7 @@ public class Archive extends javax.swing.JPanel {
 				ResultSet rs = stmt.executeQuery(query);
 				ResultSetMetaData rsmd = rs.getMetaData();
 
-				System.out.println("");
+			//	System.out.println("");
 
 				ResultSet rowcount = stmt2.executeQuery(query2);
 				int rc = 0;
@@ -185,7 +185,7 @@ public class Archive extends javax.swing.JPanel {
 				table = new Object[rc][numberOfColumns];
 
 				while (rs.next()) {
-					System.out.println(rs.getObject(1));
+					//System.out.println(rs.getObject(1));
 					for (int j = 1; j <= numberOfColumns; j++) {
 						Object columnValue = rs.getObject(j);
 						table[y][j - 1] = columnValue;
