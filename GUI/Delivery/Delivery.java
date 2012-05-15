@@ -59,13 +59,13 @@ public class Delivery extends javax.swing.JPanel {
 		jTable_DeliveryList.setModel(new javax.swing.table.DefaultTableModel(
 				deliveredTable,
 				new String [] {
-						"ID Archive", "ID Product", "Amount", "Name", "Ref Nr", "Type", "Unit", "Delivery Date"
+						"Delivery Date", "ID Product", "Amount", "Name", "Ref Nr", "Type", "Unit"
 				} ) {
             Class[] types = new Class [] {
-                    java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                    java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
                 };
                 boolean[] canEdit = new boolean [] {
-                    false, false, false, false, false, false, true, true
+                    true, false, true, false, false, false, false, false
                 };
 
                 public Class getColumnClass(int columnIndex) {
