@@ -461,7 +461,7 @@ public class Order_gui extends javax.swing.JPanel {
 						new TableModelListener() {
 
 							public void tableChanged(TableModelEvent e) {
-								System.out.println(e);
+								//System.out.println(e);
 								int row = e.getFirstRow();
 								int column = e.getColumn();
 								TableModel model = (TableModel) e.getSource();
