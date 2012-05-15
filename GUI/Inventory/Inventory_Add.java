@@ -45,13 +45,13 @@ public class Inventory_Add {
 			System.err.print("SQLException: ");
 			System.err.println(ex.getMessage());
 		}
-			System.out.println(Name);
-			System.out.println(RefNr);
-			System.out.println(Price);
-			System.out.println(Type);
-			System.out.println(Unit);
-			System.out.println(Amount);
-			System.out.println(MinAmount);
+//			System.out.println(Name);
+//			System.out.println(RefNr);
+//			System.out.println(Price);
+//			System.out.println(Type);
+//			System.out.println(Unit);
+//			System.out.println(Amount);
+//			System.out.println(MinAmount);
 			
 		}
 	}

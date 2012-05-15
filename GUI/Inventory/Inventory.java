@@ -104,7 +104,7 @@ public class Inventory extends javax.swing.JPanel {
         jTable_New_Product.getModel().addTableModelListener(new TableModelListener() {
 
             public void tableChanged(TableModelEvent e) {
-               System.out.println(e);
+               //System.out.println(e);
                int row = e.getFirstRow();
                int column = e.getColumn();
                TableModel model = (TableModel)e.getSource();
