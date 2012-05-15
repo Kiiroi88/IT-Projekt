@@ -57,7 +57,7 @@ public class Archive extends javax.swing.JPanel {
 		table = pa.PrintArchive();
 
 		jTable1.setModel(new javax.swing.table.DefaultTableModel(table,
-				new String[] { "Order ID", "Product ID", "Amount", "Name",
+				new String[] { "Order Date", "Product ID", "Amount", "Name",
 						"Ref nr", "Type", "Unit" }));
 		jScrollPane1.setViewportView(jTable1);
 

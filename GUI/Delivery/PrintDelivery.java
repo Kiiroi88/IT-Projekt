@@ -11,8 +11,8 @@ public class PrintDelivery {
 	public Object[][] printDelivery() {
 
 		Object[][] table = null;
-		String query = "SELECT chichiu_Itp2.order_product.idarkiv,chichiu_Itp2.product.idvara,chichiu_Itp2.order_product.amount,chichiu_Itp2.product.name,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.order_product JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.order_product.idvara WHERE idarkiv = 19901224";
-		String query2 = "SELECT chichiu_Itp2.order_product.idarkiv,chichiu_Itp2.product.idvara,chichiu_Itp2.order_product.amount,chichiu_Itp2.product.name,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.order_product JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.order_product.idvara WHERE idarkiv = 19901224";
+		String query = "SELECT chichiu_Itp2.order_product.idarkiv,chichiu_Itp2.product.idvara,chichiu_Itp2.order_product.amount,chichiu_Itp2.product.name,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.order_product JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.order_product.idvara WHERE idarkiv = 0";
+		String query2 = "SELECT chichiu_Itp2.order_product.idarkiv,chichiu_Itp2.product.idvara,chichiu_Itp2.order_product.amount,chichiu_Itp2.product.name,chichiu_Itp2.product.ref_nr,chichiu_Itp2.product.type,chichiu_Itp2.product.unit FROM chichiu_Itp2.order_product JOIN chichiu_Itp2.product ON chichiu_Itp2.product.idVara = chichiu_Itp2.order_product.idvara WHERE idarkiv = 0";
 		Statement stmt;
 		Statement stmt2;
 
